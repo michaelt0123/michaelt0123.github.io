@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<style>
+
+    * {
+	border: 1px solid black;
+	margin: 0;
+	padding: 0;
+    }
+
+    body {
+	height: 100%;
+	position: fixed;
+	background: #CCC;
+    }
+
+    #pageHeader {
+	height: 70px;
+	font-size: 36px;
+	text-align: center;
+	padding-top: 30px;
+	background: #CCC;
+	//position: relative;
+	width: 100vw; 
+    }
+
+    #linkContainer {
+	display: inline-block;
+	//height: 100vh;
+	//height: 600px;
+	height: 80%;
+	max-height: 816px;
+	width: 278px;
+	overflow-y: scroll;
+	//position: relative;
+	z-index: 4;
+    }
+
+    a {
+	display: block;
+	height: 70px;
+	width: 258px;
+	font-size: 36px;
+	text-align: center;
+	text-decoration: none;
+	padding-top: 30px;
+	background: #EFE;
+    }
+
+    a:hover {
+	background: #BCB;
+    }
+
+    #previewContainer {
+	display: inline-block;
+	//height: 600px;
+	height: 80%;
+	max-height: 816px;
+	//top: 104px;
+	position: fixed;
+	background: #444;
+    }
+
+    #previewPain {
+	height: 55%;
+	width: 55%;
+	top: 240px;
+	left: 45%;
+	transform: translate(-25%, 0);
+	position: absolute;
+	background: black;
+	z-index: 1;
+    }
+/*
+    #previewPain {
+	height: 55%;
+	width: 50%;
+	top: 240px;
+	left: 600px;
+	position: absolute;
+	background: black;
+	z-index: 1;
+    }
+*/
+    #pilotInterface:hover ~ #previewPain {
+	background-image: url("Images/PilotInterface.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+    }
+
+    #fizzBuzz:hover ~ #previewPain {
+	background-image: url("Images/FizzBuzz.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+    }
+
+    #typos:hover ~ #previewPain {
+	background-image: url("Images/Typos.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+    }
+
+    #qwikPick:hover ~ #previewPain {
+	background-image: url("Images/QwikPick.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+    }
+
+    #randomBtns:hover ~ #previewPain {
+	background-image: url("Images/RandomButtons.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+    }
+
+    #elemCreator:hover ~ #previewPain {
+	background-image: url("Images/ElementCreator.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+    }
+
+    #myApp:hover ~ #previewPain {
+	background-image: url("Images/MyApp.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+    }
+
+</style>
+
+<script>
+
+    function resizePreviewContainer() {
+	var w = window.innerWidth;
+	var h = window.innerHeight;
+
+	document.getElementById("previewContainer").style.width = (1920-268) + "px";
+	//document.getElementById("pageHeader").style.width = w + "px";
+    }
+
+</script>
+
+</head>
+
+
+<body onload="resizePreviewContainer()">
+
+    <h1 id="pageHeader">Site Launcher</h1>
+
+    <div id="linkContainer">
+	<a href="Sites/PilotInterface/PilotInterface.html" target="_blank" id="pilotInterface">Pilot Interface</a>
+	<a href="Sites/FizzBuzz.html" target="_blank" id="fizzBuzz">FizzBuzz</a>
+	<a href="Sites/Typos/Typos.html" target="_blank" id="typos">Typos</a>
+	<a href="Sites/QwikPick.html" target="_blank" id="qwikPick">Qwik Pick</a>
+	<a href="Sites/RandomButtons/RandomButtons.html" target="_blank" id="randomBtns">Random Buttons</a>
+	<a href="Sites/ElementCreator.html" target="_blank" id="elemCreator">Element Creator</a>
+	<a href="" id="myApp" onclick="window.open('Sites/MyApp/MyApp.html', 'My App', 'width=864,height=648,screenX=540,screenY=180'); return false;">My App</a>
+	<div id="previewPain"></div>
+    </div>
+
+    <div id="previewContainer"></div>
+
+</body>
+
+</html>

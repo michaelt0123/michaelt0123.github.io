@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title></title>
+
+    <style>
+
+	* {
+	    margin: 0;
+	    padding: 0;
+	    border: 1px solid black;
+	}
+
+	html, body {
+	    width: 100%;
+	    height: 100%;
+	    overflow: hidden;
+	    background: #556556;
+	}
+
+	div {
+	    width: 133px;
+	    height: 100px;
+	    background-image: url("Border.png");
+	    background-repeat: no-repeat;
+	    background-size: contain;
+	}
+
+	#containerLeft {
+	    width: 134px;
+	    //height: 480px;
+	    height: 512px;
+	    float: left;
+	}
+
+	#horizon {
+	    position: relative;
+	    background: silver;
+	}
+
+	#horizonImage {
+	    width: 131px;
+	    height: 100px;
+	    position: absolute;
+	}
+
+	#pressure {
+	    position: relative;
+	    background: silver;
+	}
+
+	#pressureImage {
+	    width: 131px;
+	    height: 100px;
+	    position: absolute;
+	}
+
+	#contentBorder {
+	    width: 640px;
+	    height: 480px;
+	    margin-top: 16px;
+	    //margin: 0 auto;
+	    background-image: url("Border.png");
+	    background-repeat: no-repeat;
+	    background-size: cover;
+	    position: relative;
+	    float: left;
+	}
+
+	iframe {
+	    margin: 0 auto;
+	    width: 424px;
+	    height: 264px;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    margin: -136px 0 0 -215px;
+	    //box-shadow: inset 10px 5px 25px 5px black, 5px 5px 12px 2px black;
+	}
+
+	#containerRight {
+	    width: 134px;
+	    //height: 480px;
+	    height: 512px;
+	    float: left;
+	}
+
+	#altimeter {
+	    position: relative;
+	    background: silver;
+	}
+
+	#altimeterImage {
+	    width: 131px;
+	    height: 100px;
+	    position: absolute;
+	}
+
+	#airspeed {
+	    position: relative;
+	    background: silver;
+	}
+
+	#airspeedImage {
+	    width: 131px;
+	    height: 100px;
+	    position: absolute;
+	}
+
+	#pageContainer {
+	    width: 914px;
+	    //height: 482px;
+	    height: 513px;
+	    top: 50%;
+	    left: 50%;
+	    /* bring your own prefixes */
+	    transform: translate(-50%, -50%);
+	    position: fixed;
+	    background: #444444;
+	}
+
+	#controlContainer {
+	    width: 914px;
+	    height: 100px;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, 265%);
+	    background: #444444;
+	    position: fixed;
+	}
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="pageContainer">
+
+	<div id="containerLeft">
+
+	    <div id="horizon">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Artificial_Horizon_Indicator.png" id="horizonImage"/>
+	    </div>
+
+	    <div id="pressure">
+		<img src="https://i21.servimg.com/u/f21/13/57/21/61/previe11.png" id="pressureImage" />
+	    </div>
+
+	    <div>
+	    </div>
+
+	    <div>
+	    </div>
+
+	    <div>
+	    </div>
+
+	</div>
+
+	<div id="contentBorder">
+	    <iframe id="inlineFrameExample" 
+		title="Inline Frame Example" 
+		align="middle" 
+		src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
+	    </iframe>
+	</div>
+
+	<div id="containerRight">
+
+	    <div id="altimeter">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/3-Pointer_Altimeter.svg/1200px-3-Pointer_Altimeter.svg.png" id="altimeterImage" />
+	    </div>
+
+	    <div id="airspeed">
+		<img src="https://3.bp.blogspot.com/-l1v5xGIFkFI/V3if8uFjiBI/AAAAAAAAAPA/Jc-cMGtn5G0rLYWM0q3ToWKO_EeFxbCuQCLcB/s1600/ASI.png" id="airspeedImage" />
+	    </div>
+
+	    <div>
+	    </div>
+
+	    <div>
+	    </div>
+
+	    <div>
+	    </div>
+
+	</div>
+
+    </div>
+
+    <div id="controlContainer">
+
+    </div>
+
+</body>
+
+</html>

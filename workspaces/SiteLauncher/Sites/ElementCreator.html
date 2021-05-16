@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>Element Creator</title>
+    <!--<link rel="stylesheet" type="text/css" media="screen" href="main.css">-->
+
+    <style>
+
+	* {
+	    margin: 0;
+	    padding: 0;
+	    border: 1px solid black;
+	}
+
+	#topContainer {
+	    background: #ccc;
+	}
+
+	#btnGen {
+	    height: 100px;
+	    width: 165px;
+	    font-size: 24px;
+	}
+
+	input {
+	    background: #efe;
+	}
+
+	#theElem {
+	    height: 46px;
+	    width: 102px;
+	    font-size: 24px;
+	    background: #efe;
+	}
+
+	#theHeight {
+	    height: 46px;
+	    width: 72px;
+	    font-size: 24px;
+	}
+
+	#theWidth {
+	    height: 46px;
+	    width: 72px;
+	    font-size: 24px;
+	}
+
+	#theText {
+	    height: 23px;
+	    width: 260px;
+	    font-size: 16px;
+	}
+
+	#theLink {
+	    height: 23px;
+	    width: 260px;
+	    font-size: 16px;
+	}
+
+	#inputType {
+	    height: 46px;
+	    width: 142px;
+	    font-size: 24px;
+	}
+
+    </style>
+
+    <script>
+
+	function generate() {
+
+	    var elemType = document.getElementById("theElem").value;
+	    var elemHeight = document.getElementById("theHeight").value;
+	    var elemWidth = document.getElementById("theWidth").value;
+	    var elemText = document.getElementById("theText").value;
+	    var elemLink = document.getElementById("theLink").value;
+	    var selectedHeight = document.getElementById("theHeightOptions").value;
+	    var selectedWidth = document.getElementById("theWidthOptions").value;
+	    var selectedType = document.getElementById("inputType").value;
+
+	    alert(elemType);
+
+/* For each element type, build an array of generic id values for that type such as: */
+/* {div_01, div_02, ..., div_n}, {a_01, a_02, ..., a_n}, etc. */
+
+	    switch (elemType) {
+		case "a":
+		    var anAnchor = document.createElement("a");
+		    document.getElementById("bottomContainer").appendChild(anAnchor);
+		    anAnchor.href = elemLink;
+		    anAnchor.target = "_blank";
+		    anAnchor.style.display = "block";
+		    anAnchor.style.height = elemHeight + selectedHeight;
+		    anAnchor.style.width = elemWidth + selectedWidth;
+		    if(elemText != "") {
+			anAnchor.innerHTML = elemText;
+		    }
+		    break;
+		case "div":
+		    var theDiv = document.createElement("div");
+		    document.getElementById("bottomContainer").appendChild(theDiv);
+		    theDiv.style.height = elemHeight + selectedHeight;
+		    theDiv.style.width = elemWidth + selectedWidth;
+		    if(elemText != "") {
+			theDiv.innerHTML = elemText;
+		    }
+		    break;
+		case "h1":
+		    var theH1 = document.createElement("h1");
+		    document.getElementById("bottomContainer").appendChild(theH1);
+		    theH1.style.height = elemHeight + selectedHeight;
+		    theH1.style.width = elemWidth + selectedWidth;
+		    if(elemText != "") {
+			theH1.innerHTML = elemText;
+		    }
+		    break;
+		case "h2":
+		    var theH2 = document.createElement("h2");
+		    document.getElementById("bottomContainer").appendChild(theH2);
+		    theH2.style.height = elemHeight + selectedHeight;
+		    theH2.style.width = elemWidth + selectedWidth;
+		    if(elemText != "") {
+			theH2.innerHTML = elemText;
+		    }
+		    break;
+		case "h3":
+		    var theH3 = document.createElement("h3");
+		    document.getElementById("bottomContainer").appendChild(theH3);
+		    theH3.style.height = elemHeight + selectedHeight;
+		    theH3.style.width = elemWidth + selectedWidth;
+		    if(elemText != "") {
+			theH3.innerHTML = elemText;
+		    }
+		    break;
+		case "h4":
+		    var theH4 = document.createElement("h4");
+		    document.getElementById("bottomContainer").appendChild(theH4);
+		    theH4.style.height = elemHeight + selectedHeight;
+		    theH4.style.width = elemWidth + selectedWidth;
+		    if(elemText != "") {
+			theH4.innerHTML = elemText;
+		    }
+		    break;
+		case "h5":
+		    var theH5 = document.createElement("h5");
+		    document.getElementById("bottomContainer").appendChild(theH5);
+		    theH5.style.height = elemHeight + selectedHeight;
+		    theH5.style.width = elemWidth + selectedWidth;
+		    if(elemText != "") {
+			theH5.innerHTML = elemText;
+		    }
+		    break;
+		case "h6":
+		    var theH6 = document.createElement("h6");
+		    document.getElementById("bottomContainer").appendChild(theH6);
+		    theH6.style.height = elemHeight + selectedHeight;
+		    theH6.style.width = elemWidth + selectedWidth;
+		    if(elemText != "") {
+			theH6.innerHTML = elemText;
+		    }
+		    break;
+		case "iframe":
+		    var anIframe = document.createElement("iframe");
+		    anIframe.setAttribute("src", elemLink);
+		    anIframe.style.height = elemHeight + selectedHeight;
+		    anIframe.style.width = elemWidth + selectedWidth;
+		    anIframe.setAttribute("sandbox", "allow-same-origin");
+		    document.getElementById("bottomContainer").appendChild(anIframe);
+		    /*-- Example: http://www.kfxm.com/ -- */
+		    /*anIframe.sandbox = "allow-same-origin";*/
+		    break;
+		case "input":
+		    var anInput = document.createElement("input");
+		    document.getElementById("bottomContainer").appendChild(anInput);
+		    anInput.style.display = "block";
+		    anInput.style.height = elemHeight + selectedHeight;
+		    anInput.style.width = elemWidth + selectedWidth;
+		    anInput.type = selectedType;
+		    if(elemText != "") {
+			anInput.value = elemText;
+		    }
+		    break;
+		case "p":
+		    var thePara = document.createElement("p");
+		    document.getElementById("bottomContainer").appendChild(thePara);
+		    thePara.style.height = elemHeight + selectedHeight;
+		    thePara.style.width = elemWidth + selectedWidth;
+		    if(elemText != "") {
+			thePara.innerHTML = elemText;
+		    }
+		    break;
+		case "pre":
+		    var thePre = document.createElement("pre");
+		    document.getElementById("bottomContainer").appendChild(thePre);
+		    thePre.style.height = elemHeight + selectedHeight;
+		    thePre.style.width = elemWidth + selectedWidth;
+		    if(elemText != "") {
+			thePre.innerHTML = elemText;
+		    }
+		    break;
+		default:
+		    alert("No values found");
+	    }
+
+	}
+
+	function toggle(event) {
+
+	    var keyCode = event.keyCode;
+
+	    var elemType = document.getElementById("theElem");
+	    var elemLink = document.getElementById("theLink");
+	    var elemText = document.getElementById("theText");
+	    			/* elemType.value = elemType.value.toUpperCase(); */
+	    var elemInput = document.getElementById("inputType");
+
+	    elemLink.setAttribute('disabled', 'disabled');
+	    elemLink.style.background = "silver";
+
+	    elemInput.setAttribute('disabled', 'disabled');
+	    elemInput.style.background = "silver";
+
+	    if (elemType.value == "a" || keyCode == 65 || elemType.value == "iframe") {
+		elemLink.removeAttribute('disabled');
+		elemLink.style.background = "#efe";
+
+		if (elemType.value == "iframe")
+		{
+		    elemText.value = "";
+		    elemText.setAttribute('disabled', 'disabled');
+		    elemText.style.background = "silver";
+		}
+		else
+		{
+		    elemText.removeAttribute('disabled');
+		    elemText.style.background = "#efe";
+		}
+
+	    }
+	    else {
+		elemLink.value = "";
+		elemLink.setAttribute('disabled', 'disabled');
+		elemLink.style.background = "silver";
+		elemText.removeAttribute('disabled');
+		elemText.style.background = "#efe";
+	    }
+
+	    if (elemType.value == "input") {
+		elemInput.removeAttribute('disabled');
+		elemInput.style.background = "#efe";
+	    }
+	    else {
+		elemInput.value = "";
+		elemInput.setAttribute('disabled', 'disabled');
+		elemInput.style.background = "silver";
+	    }
+
+	}
+
+    </script>
+
+</head>
+
+<body onload="toggle(event)">
+
+    <div id="topContainer">
+
+	<label for="theElem">Element Type:</label>
+	<!--<input id="theElem" type="text" onkeyup="linkToggle(event)" />-->
+	<select id="theElem" onchange="toggle(event)">
+	    <option value=" "> </option>
+	    <option value="a">a</option>
+	    <option value="div">div</option>
+	    <option value="h1">h1</option>
+	    <option value="h2">h2</option>
+	    <option value="h3">h3</option>
+	    <option value="h4">h4</option>
+	    <option value="h5">h5</option>
+	    <option value="h6">h6</option>
+	    <option value="iframe">iframe</option>
+	    <option value="input">input</option>
+	    <option value="p">p</option>
+	    <option value="pre">pre</option>
+	</select>
+
+	<label for="theHeight">Height:</label>
+	<input id="theHeight" type="number" />
+	<select id="theHeightOptions">
+	    <option value="px">px</option>
+	    <option value="em">em</option>
+	    <option value="vh">vh</option>
+	    <option value="%">%</option>
+	</select>
+
+	<label for="theWidth">Width:</label>
+	<input id="theWidth" type="number" />
+	<select id="theWidthOptions">
+	    <option value="px">px</option>
+	    <option value="em">em</option>
+	    <option value="vw">vw</option>
+	    <option value="%">%</option>
+	</select>
+
+	<label for="theText">Text:</label>
+	<input id="theText" type="text" />
+
+	<label for="theLink">URL:</label>
+	<input id="theLink" type="url" />
+
+	<label for="inputType">Input Type:</label>
+	<select id="inputType">
+	    <option value=" "> </option>
+	    <option value="button">button</option>
+	    <option value="checkbox">checkbox</option>
+	    <option value="color">color</option>
+	    <option value="date">date</option>
+	    <option value="email">email</option>
+	    <option value="file">file</option>
+	    <option value="image">image</option>
+	    <option value="number">number</option>
+	    <option value="password">password</option>
+	    <option value="radio">radio</option>
+	    <option value="range">range</option>
+	    <option value="reset">reset</option>
+	    <option value="search">search</option>
+	    <option value="submit">submit</option>
+	    <option value="tel">tel</option>
+	    <option value="text">text</option>
+	    <option value="url">url</option>
+	</select>
+
+	<button id="btnGen" onclick="generate()">Generate</button>
+
+    </div>
+
+    <div id="bottomContainer"></div>
+
+</body>
+
+</html>
+
+<!-- https://stackoverflow.com/questions/10418644/creating-an-iframe-with-given-html-dynamically -->
+<!-- https://stackoverflow.com/questions/8726455/creating-an-iframe-using-javascript/8726513 -->
+<!-- https://elfsight.com/iframe-widgets/ -->
+<!-- How to Append Child Nodes to Created Elements -->
+<!--var node = document.createElement("LI");                 // Create a <li> node-->
+<!--var textnode = document.createTextNode("Water");         // Create a text node-->
+<!--node.appendChild(textnode);                              // Append the text to <li>-->
+<!--document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList"-->
+
+<!--	Example IFrame Embeddable Sites
+	http://www.kfxm.com/
+	https://www.mit.edu/
+	https://www.dailymail.co.uk/
+-->

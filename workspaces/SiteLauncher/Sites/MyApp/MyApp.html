@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>My App</title>
+
+<style>
+
+    * {
+	margin: 0;
+	padding: 0;
+	border: 1px solid black;
+    }
+
+    #myApp {
+	height: 640px;
+	width: 860px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	background: lightgray;
+    }
+
+    #titleBar {
+	height: 38px;
+	background: gray;
+    }
+
+    #appTitle {
+	display: inline-block;
+	height: 25px;
+	width: 200px;
+	position: relative;
+	top: 3px;
+	left: 10px;
+	padding-top: 5px;
+	color: white;
+    }
+
+    #min, #max, #close {
+	display: inline-block;
+	height: 25px;
+	width: 25px;
+	position: relative;
+	top: 5px;
+	right: -550px;
+    }
+
+    #minLink, #maxLink, #closeLink {
+	display: inline-block;
+	height: 21px;
+	width: 25px;
+	position: relative;
+	color: white;
+	text-decoration: none;
+	font-size: 16px;
+	text-align: center;
+	padding-top: 4px;
+    }
+
+    #minLink:hover, #maxLink:hover {
+	background: silver;
+	color: black;
+    }
+
+    #closeLink:hover {
+	background: #FF0000;
+	color: black;
+    }
+
+    #navBar {
+	height: 40px;
+	background: silver;
+    }
+
+    #file, #edit, #view, #help {
+	width: 200px;
+	height: 32px;
+	font-size: 24px;
+	left: 10px;
+	position: relative;
+	padding-top: 6px;
+	float: left;
+    }
+
+    a {
+	display: none;
+	text-decoration: none;
+	background: #CCCCCC;
+    }
+
+    #file:hover, #edit:hover, #view:hover, #help:hover {
+	background: #e6f1ff;
+    }
+
+    #file:hover a, #edit:hover a, #view:hover a, #help:hover a {
+	display: block;
+	text-decoration: none;
+	z-index: 2;
+	top: 5px;
+	position: relative;
+    }
+
+    a:hover {
+	background: #b3d7ff;
+	color: #000000
+    }
+
+    #cbStatus {
+	height: 24px;
+	top: 5px;
+	left: 70px;
+	position: relative;
+    }
+
+    #workspace {
+	height: 420px;
+	width: 838px;
+	top: 40px;
+	left: 10px;
+	position: relative;
+    }
+
+    textarea {
+	height: 398px;
+	width: 816px;
+	top: 10px;
+	left: 10px;
+	position: relative;
+	resize: none;
+	z-index: 1;
+    }
+
+    #btnOpen {
+	height: 34px;
+	width: 88px;
+	bottom: -50px;
+	left: 648px;
+	position: relative;
+    }
+
+    #btnSave {
+	height: 34px;
+	width: 88px;
+	bottom: -50px;
+	left: 658px;
+	position: relative;
+    }
+
+    #btnOpen:hover, #btnSave:hover {
+	background: silver;
+	//color: white;
+    }
+
+    #statusBar {
+	height: 28px;
+	bottom: -62px;
+	position: relative;
+	padding-top: 12px;
+    }
+
+</style>
+
+<script>
+
+    function close_window() {
+	if (confirm("Close Window?")) {
+	    //close();
+	    window.parent.close();
+	}
+    }
+
+    function toggleStatus() 
+    {
+	var checkbox = document.getElementById("cbStatus");
+	var elemStatus = document.getElementById("statusBar");
+
+	if(checkbox.checked) 
+	{
+	    document.getElementById("cbStatus").checked = false;
+	    elemStatus.style.display = "none";
+	}
+	else 
+	{
+	    document.getElementById("cbStatus").checked = true;
+	    elemStatus.style.display = "block";
+	}
+    }
+
+    function importData() {
+	let input = document.createElement('input');
+	input.type = 'file';
+	input.onchange = _ => {
+	    // you can use this method to get file and perform respective operations
+	    let files = Array.from(input.files);
+	    console.log(files);
+	};
+	input.click();
+    }
+
+/*
+    function resizeWin() {
+	parent.document.body.style.width = 864px;
+	parent.document.body.style.height = 648px;
+	parent.document.focus();
+    }
+*/
+
+</script>
+
+</head>
+
+<body>
+
+    <div id="myApp">
+
+	<div id="titleBar">
+
+	    <p id="appTitle">My App</p>
+	    <div id="min"><a href="#" id="minLink">♥</a></div>
+	    <div id="max"><a href="#" id="maxLink">♠</a></div>
+	    <div id="close"><a href="#" onclick="close_window();return false;" id="closeLink">♦</a></div>
+
+	</div>
+
+	<div id="navBar">
+
+	    <div id="file">File
+		<a href="#">New</a>
+		<a href="#" onclick="importData()">Open</a>
+		<a href="#">Save</a>
+		<a href="#">Print</a>
+		<a href="#" onclick="close_window();return false;">Exit</a>
+	    </div>
+
+	    <div id="edit">Edit
+		<a href="#">Cut</a>
+		<a href="#">Copy</a>
+		<a href="#">Paste</a>
+		<a href="#">Find</a>
+		<a href="#">Select All</a>
+	    </div>
+
+	    <div id="view">View
+		<a href="#" onclick="toggleStatus();return false;">Status Bar <input id="cbStatus" type="checkbox" onclick="toggleStatus()" checked /></a>
+	    </div>
+
+	    <div id="help">Help
+		<a href="#" target="popup" onclick="window.open('MyAppAbout.html', 'About My App', 'width=504,height=304,screenX=700,screenY=400'); return false;">About</a>
+	    </div>
+
+	</div>
+
+	<div id="workspace">
+	    <textarea></textarea>
+	</div>
+
+	<input type="button" id="btnOpen" value="OPEN" onclick="importData()" />
+	<input type="button" id="btnSave" value="SAVE" />
+
+	<div id="statusBar">STATUS</div>
+
+    </div>
+
+</body>
+
+</html>

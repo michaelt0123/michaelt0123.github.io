@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Typos</title>
+    <!--<link rel="stylesheet" type="text/css" media="screen" href="main.css">-->
+
+    <style>
+
+	* {
+	    margin: 0;
+	    padding: 0;
+	    //border: 1px solid black;
+	}
+
+	body {
+	    background: #dee;
+	}
+
+	#instructions {
+	    font-size: 32px;
+	}
+
+	#headline {
+	    font-family: Brush Script MT;
+	    font-size: 48px;
+	    color: darkgray;
+	    padding-left: 200px;
+	}
+
+	#intro {
+	    width: 920px;
+	    margin: 0 auto;
+	    font-family: Brush Script MT;
+	    font-size: 32px;
+	    text-align: center;
+	    background: linear-gradient(purple, silver);
+	    -webkit-background-clip: text;
+	    -webkit-text-fill-color: transparent;
+	}
+
+	#pageContent {
+	    display: block;
+	    height: 920px;
+	    width: 748px;
+	    margin-left: auto;
+	    margin-right: auto;
+	    padding: 20px;
+	    font-family: Brush Script MT;
+	    font-size: 34px;
+	    //background: #FCFAE5;
+	    //background: #FAF9EC;
+	    background-image: url("Paper.jpg");
+	    background-repeat: no-repeat;
+	    background-size: cover;
+	    background-position: center;
+	    resize: none;
+	    line-height: 31px;
+	    overflow: hidden;
+	    border: 1px solid black;
+	}
+
+	#footer {
+	    height: 80px;
+	    font-family: Brush Script MT;
+	    font-size: 48px;
+	    color: darkgray;
+	    text-align: center;
+	    padding-top: 20px;
+	}
+
+    </style>
+
+    <script>
+
+	function andSoItBegins() {
+
+	    var firstParagraph = "\n\t\t     Memoirs of a Time Forgotten\n\n\n    As the world awoke from the confines of a beleaguered reality that was shrouded in clouded beliefs and misconstrued morals, a multitude of people came with calamity on their minds to the forefront of a jaded ecosystem.  Society was changing and the world turned to sympathy in unison and veered away from the tumultuous behaviors that they were so accustomed to.  Totalitarianism was the main reason for the great fall of the iniquitous bunch; those who were righteous but whose spirits had been broken by cursed reasons and ill-fated glories.  \n\n    ";
+
+	    var writersBlock = document.getElementById("pageContent");
+
+	    writersBlock.innerHTML = firstParagraph;
+	}
+
+    </script>
+
+</head>
+
+<body onload="andSoItBegins()">
+
+    <p id="instructions">Use the Text Area to Complete the Story:</p>
+    <br>
+    <h1 id="headline">Once Upon a Time...</h1>
+    <br>
+    <p id="intro">This was just how things had to be.  It was an Interesting dilemma; one which hadn't been explored before, but was captivating nonetheless.</p>
+    <br>
+    <textarea id="pageContent" tabindex="0" maxlength="1555"></textarea>
+    <br>
+    <div id="footer">The End</div>
+
+</body>
+</html>
+
+
+<!-- A Story Used To Test the Number of Characters in the Textarea:
+
+
+				Memoirs of a Time Forgotten
+
+
+    As the world awoke from the confines of a beleaguered reality that was shrouded in clouded beliefs and misconstrued morals, a multitude of people came with calamity on their minds to the forefront of a jaded ecosystem.  Society was changing and the world turned to sympathy in unison and veered away from the tumultuous behaviors that they were so accustomed to.  Totalitarianism was the main reason for the great fall of the iniquitous bunch; those who were righteous but whose spirits had been broken by cursed reasons and ill-fated glories.
+
+    So little was our time together, so wondrously we walked hand-in-hand as the plumes of smoke encircled the skies and promoted a significant way of responding to such meager and opposing propositions.  Only one thing could be done which would relieve the persuasive nature of mankind; humankind at heart.  It was a chance to reclaim what we once knew to be true.  Our own instinctive record and proposed way of handling and enduring situations.  It was this, according to foretold proclamations, that we should be denied.
+
+    Nevertheless, it was incompetence and sorrow coupled with misfortune that led us to the brink of our own destruction.  The perils from the realm of Eden were quite desirable compared to the struggles that were embellished upon the sanctity and sanity of a lowly human race, a race so mischievous that it would take years to right our wrongs and undo that which had already been done.  How could we be so blind to the notion of truth?
+
+-->

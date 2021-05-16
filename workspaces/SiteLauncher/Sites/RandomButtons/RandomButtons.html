@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Random Buttons</title>
+    <!--<link rel="stylesheet" type="text/css" media="screen" href="main.css">-->
+
+    <style>
+
+	* {
+	    margin: 0;
+	    padding: 0;
+	    //border: 1px solid black;
+	}
+
+	body {
+	    background: #98BCDD;
+	}
+
+	p {
+	    display: block;
+	    width: 564px;
+	    height: 100px;
+	    font-size: 42px;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -375%);
+	    text-align: center;
+	    position: absolute;
+	    border: 1px solid black;
+	}
+
+	input {
+	    height: 60px;
+	    width: 94px;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, 460%);
+	    position: fixed;
+	    border: 1px solid black;
+	}
+
+	button {
+	    height: 60px;
+	    width: 94px;
+	    border: 1px solid black;
+	}
+
+	#btnContainer {
+	    height: 480px;
+	    width: 564px;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    background: url("neon.jpg");
+	    background-repeat: no-repeat;
+	    background-size: 564px 480px;
+	    border: 1px solid black;
+	}
+
+    </style>
+
+    <script>
+
+	var count;
+	var totalBtns;
+
+	function addButton(num) {
+
+	    totalBtns = document.getElementById("btnContainer").childElementCount;
+
+	    if (totalBtns >= 48)
+	    {
+		alert("Try again!");
+		createButtons();
+		return;
+	    }
+
+	    count = num;
+
+	    var btnTypes = ["btnAdd", "btnRemove"];
+
+	    /* Create a Button element */
+	    var btn = document.createElement("button");
+
+	    /* Add the Button element to the Body element */
+	    /*document.body.appendChild(btn);*/
+	    document.getElementById("btnContainer").appendChild(btn);
+
+	    var randomType = btnTypes[Math.floor(Math.random() * btnTypes.length)];
+
+	    /* Set the Button Attributes based on the Type */
+	    if (randomType == "btnAdd") {
+		count++;
+		/* Set the Attributes (characteristics) of the Button element */
+		btn.setAttribute("id", "btn_Add");
+		btn.setAttribute("class", "btnAdd");
+		btn.setAttribute("onclick", "addButton(count)");
+		//btn.innerHTML = "Click Here" + count;
+		btn.innerHTML = "Click Here";
+	    }
+	    else {
+		count++;
+		btn.setAttribute("id", "btn_Remove");
+		btn.setAttribute("class", "btnRemove");
+		btn.setAttribute("onclick", "removeButton(count)");
+		//btn.innerHTML = "Click Here" + count;
+		btn.innerHTML = "Click Here";
+	    }
+	}
+
+	function removeButton(num) {
+	    count = num;
+	    count--;
+	    var elem = document.querySelector('button');
+	    elem.parentNode.removeChild(elem);
+
+	    totalBtns = document.getElementById("btnContainer").childElementCount;
+
+	    if (totalBtns <= 0)
+	    {
+		alert("You Win!");
+		return;
+	    }
+	}
+
+    </script>
+
+</head>
+
+<body>
+
+    <p>Click the button to play the game.</p>
+
+    <input type="button" value="Begin" onclick="createButtons()" />
+
+    <div id="btnContainer"></div>
+
+    <script>
+
+	var num=0;
+	var addbtns;
+	var rembtns;
+
+	function createButtons() {
+
+	    totalBtns = document.getElementById("btnContainer").childElementCount;
+
+	    /* Clear the parent container if child elements exist */
+	    if(document.body.contains(document.getElementById("btn_Add")) || totalBtns <= 0)
+	    {
+		/* alert('Element exists!'); */
+
+	        num=0;
+		const theParentContainer = document.getElementById("btnContainer");
+		theParentContainer.innerHTML = '';
+	    }
+	    else
+	    {
+		/* alert('Element does not exist!'); */
+	    }
+
+	    var btnTypes = ["btnAdd", "btnRemove"];
+
+	    for (i = 0; i < 24; i++) {
+		num++;
+
+	    	/* Create a Button element */
+	    	var btn = document.createElement("button");
+
+	    	/* Add the Button element to the Body element */
+	    	/*document.body.appendChild(btn);*/
+		document.getElementById("btnContainer").appendChild(btn);
+
+	    	var randomType = btnTypes[Math.floor(Math.random() * btnTypes.length)];
+
+	    	/* Set the Button Attributes based on the Type */
+	    	if (randomType == "btnAdd") {
+		    /* Set the Attributes (characteristics) of the Button element */
+		    btn.setAttribute("id", "btn_Add");
+		    btn.setAttribute("class", "btnAdd");
+		    btn.setAttribute("onclick", "addButton(num)");
+		    //btn.innerHTML = "Click Here " + num;
+		    btn.innerHTML = "Click Here";
+	    	}
+	    	else {
+		    btn.setAttribute("id", "btn_Remove");
+		    btn.setAttribute("class", "btnRemove");
+		    btn.setAttribute("onclick", "removeButton(num)");
+		    //btn.innerHTML = "Click Here " + num;
+		    btn.innerHTML = "Click Here";
+	    	}
+	    }
+	}
+
+    </script>
+
+    <!--  #### Example of an External Script ####  -->
+    <!--<script src="script.js"></script>-->
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+	<title>Qwik Pick</title>
+
+	<script>
+
+	    //- Declare a variable to store a random number:
+	    var randNum;
+
+	    //- Declare an array to store the numbers that are generated:
+	    var numbers = [];
+
+	    //- Declare a function to perform the logic necessary to generate 
+	    //  and store the random numbers:
+	    function getRandomNumbers() {
+
+		//- Generate Random Numbers and Populate an Array:
+		//- While the size of our array is less than or equal to 4:
+		while(numbers.length <= 4) {
+
+		    //- Use the Math.random function to generate a random number 
+		    //  that ranges from 1 to 69 and store it in the randNum variable:
+		    randNum = Math.floor(Math.random() * (69 - 1 + 1)) + 1;
+
+		    //- This logic ensures that we do not get duplicate numbers in our array:
+		    if(numbers.indexOf(randNum) === -1) numbers.push(randNum);
+		}
+
+		//- Sort the numbers in the array from smallest to largest using the sort routine:
+		numbers.sort(sortNumbers);
+
+		//- Insert the numbers from the array into the text areas on the web page, 
+		//  incrementing as we iterate through the loop:
+		for(var x=0; x<=numbers.length; x++) {
+		    document.getElementById("num" + (x+1)).innerHTML = numbers[x];
+		}
+
+		//- Clear the array so that it's ready for a new set of numbers if the 
+		//  user clicks the "Pick" link again:
+		numbers.splice(0, numbers.length);
+
+		//- Generate a Random Number for the PowerBall Element:
+		let r = Math.floor(Math.random() * (26 - 1 + 1)) + 1;  //- 1 through 26.
+		document.getElementById("num6").innerHTML = r;
+
+		randNum = 0; //- Clean the variable.
+	    }
+
+	    //- Comparison function needed in conjuction with JavaScript's sort routine:
+	    function sortNumbers(a, b) {
+		return a > b ? 1 : b > a ? -1 : 0;
+	    }
+
+	    function letterLoader() {
+		document.getElementById("num1").innerHTML = "Q";
+		document.getElementById("num2").innerHTML = "U";
+		document.getElementById("num3").innerHTML = "I";
+		document.getElementById("num4").innerHTML = "C";
+		document.getElementById("num5").innerHTML = "K";
+	    }
+
+	</script>
+
+	<style>
+
+	    * {
+		//border: 1px solid black;
+		margin: 0;
+		padding 0;
+	    }
+
+	    body {
+		background-color: #000;
+		overflow: hidden;
+	    }
+
+	    #focalContainer {
+		height: 600px;
+		width: 100%;
+		position: relative;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		position: absolute;
+		border: 1px solid black;
+		background-color: #777;
+	    }
+
+	    #contentContainer {
+		height: 300px;
+		width: 1460px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		padding-left: 40px;
+	    }
+
+	    .numContainers {
+		display: block;
+		height: 264px;
+		width: 200px;
+		float: left;
+		font-size: 180px;
+		padding-top: 36px;
+		border: 1px solid black;
+		background-color: #FFF;
+		resize: none;
+		text-align: center;
+	    }
+
+	    #num6 {
+		background-color: red;
+		color: white;
+		border: 1px solid black;
+	    }
+
+	    #pickContainer {
+		height: 100%;
+		width: 175px;
+		top: 50%;
+		-ms-transform: translateY(-50%);
+		transform: translateY(-50%);
+		position: relative;
+		float: left;
+		margin-left: 15px;
+	    }
+
+	    a {
+		display: block;
+		height: 160px;
+		width: 165px;
+		top: 50%;
+		-ms-transform: translateY(-50%);
+		transform: translateY(-50%);
+		position: relative;
+		font-size: 72px;
+		float: right;
+		padding-top: 70px;
+		text-decoration: none;
+		background-color: #AD9;
+		color: #263;
+		border: 1px solid black;
+	    }
+
+	</style>
+
+    </head>
+
+    <body onload="letterLoader()">
+
+	<div id="focalContainer">
+
+	    <div id="contentContainer">
+
+		<textarea id="num1" class="numContainers" readonly></textarea>
+		<textarea id="num2" class="numContainers" readonly></textarea>
+		<textarea id="num3" class="numContainers" readonly></textarea>
+		<textarea id="num4" class="numContainers" readonly></textarea>
+		<textarea id="num5" class="numContainers" readonly></textarea>
+		<textarea id="num6" class="numContainers" readonly></textarea>
+
+		<div id="pickContainer">
+		    <a href="#" onclick="getRandomNumbers()">PICK</a>
+		</div>
+
+	    </div>
+
+	</div>
+
+    </body>
+
+</html>
