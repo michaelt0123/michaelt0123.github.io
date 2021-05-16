@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+
+    <title>[SITE TEMPLATE]</title><!--Change the Title-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="Styles/style.css">
+
+    <!-- the below three lines are a fix to get HTML5 semantic elements working in old versions of Internet Explorer-->
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+
+    <script>
+	var i = 0;
+
+	function currentTime() {
+	    var date = new Date(); /* creating object of Date class */
+	    var hour = date.getHours();
+	    var min = date.getMinutes();
+	    var sec = date.getSeconds();
+	    var midday = "AM";
+	    midday = (hour >= 12) ? "PM" : "AM"; /* assigning AM/PM */
+	    hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour); /* assigning hour in 12-hour format */
+	    hour = updateTime(hour);
+	    min = updateTime(min);
+	    sec = updateTime(sec);
+	    document.getElementById("clock").innerText = hour + " : " + min + " : " + sec + " " + midday; /* adding time to the div */
+	    var t = setTimeout(currentTime, 1000); /* setting timer */
+	}
+
+	function secondCounter(){
+	    ++i;
+	}
+
+	function updateTime(k) { /* appending 0 before time elements if less than 10 */
+	    if (k < 10) {
+		return "0" + k;
+	    }
+	    else {
+		return k;
+	    }
+	}
+
+	currentTime();
+
+    </script>
+
+</head>
+
+<body onload="currentTime()">
+
+    <div id="pageContainer">
+
+	<!-- Here is our main header that is used across all the pages of our website -->
+	<header>
+	    <h1>[SITE TEMPLATE]</h1><!--Change the Header-->
+	</header>
+
+	<nav>
+	    <ul>
+		<li><a href="Pages/Home.html" target="myFrame">Home</a></li>
+		<li><a href="Pages/Links.html" target="myFrame">Links</a></li>
+		<li><a href="Pages/KeyboardShortcuts.html" target="myFrame">Keyboard Shortcuts</a></li>
+		<li><a href="Pages/SystemCommands.html" target="myFrame">System Commands</a></li>
+		<li><a href="Pages/AutoResponse.html" target="myFrame">Auto-Response</a></li>
+	    </ul>
+	</nav>
+
+	<!-- Here is our page's main content -->
+	<main>
+
+	    <iframe src = "Pages/Home.html" name="myFrame">
+		Sorry your browser does not support inline frames.
+	    </iframe>
+
+	    <!-- the aside content can also be nested within the main content -->
+	    <aside>
+
+		<h2>Related</h2>
+
+		<ul>
+		    <li><a href="https://www.office.com/launch/word?auth=1" target="_blank">Microsoft Office - (Word)</a></li>
+		    <li><a href="https://www.office.com/launch/excel?auth=1" target="_blank">Microsoft Office - (Excel)</a></li>
+		    <li><a href="https://www.office.com/launch/powerpoint?auth=1" target="_blank">Microsoft Office - (PowerPoint)</a></li>
+		    <li><a href="https://outlook.com/" target="_blank">Microsoft Office - (Outlook)</a></li>
+		    <li><a href="https://web.skype.com/" target="_blank">Microsoft Office - (Skype)</a></li>
+		    <li><a href="sip:">Skype - (Desktop Client)</a></li>
+		    <li><a href="https://docs.google.com/document/?usp=mkt_docs" target="_blank">Google - (Docs)</a></li>
+		    <li><a href="https://docs.google.com/spreadsheets/?usp=mkt_sheets" target="_blank">Google - (Sheets)</a></li>
+		    <li><a href="https://docs.google.com/presentation/?usp=mkt_slides" target="_blank">Google - (Slides)</a></li>
+		    <li><a href="https://docs.google.com/forms?usp=mkt_forms" target="_blank">Google - (Forms)</a></li>
+		    <li><a href="https://www.icloud.com/pages" target="_blank">Apple iCloud - (Pages)</a></li>
+		    <li><a href="https://www.icloud.com/numbers" target="_blank">Apple iCloud - (Numbers)</a></li>
+		    <li><a href="https://www.icloud.com/keynote" target="_blank">Apple iCloud - (Keynote)</a></li>
+		    <li><a href="https://www.icloud.com/mail" target="_blank">Apple iCloud - (Mail)</a></li>
+		    <li><a href="https://www.jotform.com/myforms/" target="_blank">JotForm - (My Forms)</a></li>
+		    <li><a href="https://www.jotform.com/mytables/" target="_blank">JotForm - (My Tables)</a></li>
+		    <li><a href="https://www.jotform.com/myreports/" target="_blank">JotForm - (My Reports)</a></li>
+		    <li><a href="https://www.pdfescape.com/open/" target="_blank">PDFescape</a></li>
+		    <li><a href="https://builder.honeycode.aws/" target="_blank">Amazon Honeycode</a></li>
+		    <li><a href="https://pwa.zoom.us/wc" target="_blank">Zoom - (Join a Meeting)</a></li>
+		    <li><a href="https://zoom.us/wc/join/meetingid" target="_blank">Zoom - (MeetingID in URL)</a></li>
+		    <li><a href="https://www.bluejeans.com/" target="_blank">BlueJeans - (Join a Meeting)</a></li>
+		    <li><a href="https://bluejeans.com/meetingid" target="_blank">BlueJeans - (MeetingID in URL)</a></li>
+		    <li><a href="https://meetingsamer31.webex.com/webappng/sites/meetingsamer31/dashboard?siteurl=meetingsamer31" target="_blank">Webex - (Join a Meeting)</a></li>
+		</ul>
+
+	    </aside>
+
+	</main>
+
+	<!-- And here is our main footer that is used across all the pages of our website -->
+
+	<footer>
+	    <div id="clock"></div>
+	</footer>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>System Commands</title>
+
+<style>
+
+    * {
+	margin: 0;
+	padding: 0;
+	border: 1px solid black;
+    }
+
+    body {
+	background: rgb(2,0,36);
+	background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(16,80,100,1) 35%, rgba(0,100,150,1) 100%);
+    }
+
+    /* Google font */
+    @import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+    /* Style the header */
+    .header {
+	background-color: #789;
+	padding: 30px 40px;
+	color: white;
+	text-align: center;
+    }
+
+    /* Clear floats after the header */
+    .header:after {
+	content: "";
+	display: table;
+	clear: both;
+    }
+
+    #headerShadow {
+	top: 0;
+	left: 0;
+	width: 100%;
+	position: fixed;
+	z-index: 2;
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	-moz-box-shadow: 0 8px 6px -6px black;
+	box-shadow: 0 40px 20px -6px #222;
+    }
+
+    h1 {
+	font-size: 42px;
+    }
+
+    h2 {
+	text-align: center;
+	background: #c9c9c9;
+    }
+
+    h3 {
+	background: #c9c9c9;
+    }
+
+    #pageContainer {
+	margin: 0 auto;
+	margin-top: 200px;
+	margin-bottom: 50px;
+	width: 88%;
+	border: 3px solid #008;
+	padding: 10px;
+	background: #DEF;
+    }
+
+    .codeContainer, .codeSegment {
+	font-size: 24px;
+    }
+
+    #codeBlock {
+	font-size: 24px;
+	margin: 16px auto;
+	background: black;
+    }
+
+    code {
+	display: block;
+	color: #eee;
+	font-weight: 700;
+	padding: 2px 4px;
+    }
+
+    #customLineBreak {
+	height: 16px;
+    }
+
+    .comment {
+	color: yellow;
+    }
+
+
+</style>
+
+</head>
+
+<body>
+
+    <div id="pageContainer">
+
+	<h1 id="headerShadow" class="header">System Commands</h1>
+
+	<div class="codeContainer">
+
+	    <h2>Common Utilities</h2>
+
+	    <div id="codeBlock">
+
+		<table>
+		    <tr>
+			<th><code class="comment">#Command</code></th>
+			<th style='width: 200px;'></th>
+			<th style='text-align: left;'><code class="comment">&nbsp;&nbsp;&nbsp;&nbsp;#Description</code></th>
+		    </tr>
+		    <tr>
+			<td><code>cmd</code></td>
+			<td>--------------------</td>
+			<td><code>Command Line Interface</code></td>
+		    </tr>
+		    <tr>
+			<td><code>osk</code></td>
+			<td>--------------------</td>
+			<td><code>On-Screen Keyboard</code></td>
+		    </tr>
+		    <tr>
+			<td><code>mstsc</code></td>
+			<td>--------------------</td>
+			<td><code>Remote Desktop</code></td>
+		    </tr>
+		    <tr>
+			<td><code>control</code></td>
+			<td>--------------------</td>
+			<td><code>Control Panel</code></td>
+		    </tr>
+		    <tr>
+			<td><code>taskmgr.exe</code></td>
+			<td>--------------------</td>
+			<td><code>Task Manager</code></td>
+		    </tr>
+		    <tr>
+			<td><code>services.msc</code></td>
+			<td>--------------------</td>
+			<td><code>Services Utility</code></td>
+		    </tr>
+		    <tr>
+			<td><code>eventvwr.msc</code></td>
+			<td>--------------------</td>
+			<td><code>Event Viewer</code></td>
+		    </tr>
+		    <tr>
+			<td><code>perfmon.msc</code></td>
+			<td>--------------------</td>
+			<td><code>Performance Monitor</code></td>
+		    </tr>
+		    <tr>
+			<td><code>gpedit.msc</code></td>
+			<td>--------------------</td>
+			<td><code>Local Group Policy Editor</code></td>
+		    </tr>
+		    <tr>
+			<td><code>compmgmt.msc</code></td>
+			<td>--------------------</td>
+			<td><code>Computer Management</code></td>
+		    </tr>
+		    <tr>
+			<td><code>devmgmt.msc</code></td>
+			<td>--------------------</td>
+			<td><code>Device Manager</code></td>
+		    </tr>
+		    <tr>
+			<td><code>diskmgmt.msc</code></td>
+			<td>--------------------</td>
+			<td><code>Disk Manager</code></td>
+		    </tr>
+		    <tr>
+			<td><code>appwiz.cpl</code></td>
+			<td>--------------------</td>
+			<td><code>Installed Applications</code></td>
+		    </tr>
+		    <tr>
+			<td><code>msinfo32.exe</code></td>
+			<td>--------------------</td>
+			<td><code>System Information</code></td>
+		    </tr>
+		    <tr>
+			<td><code>dxdiag.exe</code></td>
+			<td>--------------------</td>
+			<td><code>DirectX Diagnostic Tool</code></td>
+		    </tr>
+		    <tr>
+			<td><code>lusrmgr.msc</code></td>
+			<td>--------------------</td>
+			<td><code>Local Users and Groups</code></td>
+		    </tr>
+		    <tr>
+			<td><code>dsa.msc</code></td>
+			<td>--------------------</td>
+			<td><code>Active Directory Users and Computers</code></td>
+		    </tr>
+		    <tr>
+			<td><code>mmc</code></td>
+			<td>--------------------</td>
+			<td><code>Microsoft Management Console</code></td>
+		    </tr>
+		</table>
+
+	    </div>
+
+	</div>
+
+	<div class="codeContainer">
+
+	    <h2>Common Windows Commands</h2>
+	    <div id="customLineBreak"></div>
+	    <h3>Retrieve System Information:</h3>
+
+	    <div id="codeBlock">
+
+		<code class="comment"># Display the Hostname of the Local System #</code>
+		<code>hostname</code>
+		<br>
+		<code class="comment"># Display Local System Information #</code>
+		<code>systeminfo</code>
+		<br>
+		<code class="comment"># Display Remote System Information #</code>
+		<code>systeminfo /s Computername</code>
+		<br>
+		<code class="comment"># Display File Extension Associations #</code>
+		<code>assoc</code>
+		<br>
+		<code class="comment"># Display the Installed Drivers #</code>
+		<code>driverquery -v</code>
+		<br>
+		<code class="comment"># Display Currently Running Tasks #</code>
+		<code>tasklist</code>
+		<br>
+		<code class="comment"># End a Running Task by providing it's Image Name or the Process ID #</code>
+		<code>taskkill</code>
+		<br>
+		<code class="comment"># List the Global Switches and Aliases available for the wmic Command #</code>
+		<code>wmic /?</code>
+		<br>
+		<code class="comment"># List the Properties available for a selected wmic Alias #</code>
+		<code>wmic bios get /?</code>
+		<br>
+		<code class="comment"># Get the Serial Number of the Local Computer #</code>
+		<code>wmic bios get serialnumber</code>
+		<br>
+		<code class="comment"># Get the Serial Number of a Remote Computer #</code>
+		<code>wmic /node:Computername bios get serialnumber</code>
+		<br>
+		<code class="comment"># Get the Description and Size of Installed Hard Drives #</code>
+		<code>wmic logicaldisk get deviceid, volumename, description, size, drivetype, freespace</code>
+		<br>
+		<code class="comment"># Get the Manufacturer, Model, S/N, and Total Size of the HDD #</code>
+		<code>wmic diskdrive get manufacturer, model, serialnumber, size</code>
+		<br>
+		<code class="comment"># Display the Volume Label and S/N of a HDD #</code>
+		<code>vol C:</code>
+		<br>
+		<code class="comment"># Check with the Domain Controller for new or updated Group Policies and apply them. #</code>
+		<code>gpupdate /force</code>
+		<br>
+		<code class="comment"># Display all Group Policy objects for the current user and the local system. #</code>
+		<code>gpresult /r</code>
+		<br>
+
+	    </div>
+
+	    <h3>Retrieve Network Information:</h3>
+
+	    <div id="codeBlock">
+
+		<code class="comment"># Display all TCP/IP network configuration values #</code>
+		<code>ipconfig /all</code>
+		<br>
+		<code class="comment"># Force the local system to give up it's IP address. #</code>
+		<code>ipconfig /release</code>
+		<br>
+		<code class="comment"># Instruct the local system to request a new IP address. #</code>
+		<code>ipconfig /renew</code>
+		<br>
+		<code class="comment"># Clear the DNS cache of the local system. #</code>
+		<code>ipconfig /flushdns</code>
+		<br>
+		<code class="comment"># View the network connections that are active between your system and any other 
+systems on your network or the internet and display the listening ports. #</code>
+		<code>netstat -a</code>
+		<br>
+		<code class="comment"># Display the names that have been registered locally on the system by NetBIOS applications. #</code>
+		<code>nbtstat -n</code>
+		<br>
+		<code class="comment"># Use the Ping command to test the network communication between your pc and another IP address or URL. #</code>
+		<code>ping 127.0.0.1</code>
+		<br>
+		<code class="comment"># View the network communication path between your pc and another IP address or URL. #</code>
+		<code>tracert 127.0.0.1</code>
+		<br>
+		<code class="comment"># Query the DNS to obtain IP address mapping or domain name information.  (Note: This can be used to see the IP address for any URL.) #</code>
+		<code>nslookup 127.0.0.1</code>
+		<br>
+		<code class="comment"># Display the MAC addresses of the network interfaces. #</code>
+		<code>getmac</code>
+		<br>
+		<code class="comment"># Retrieve the Address Resolution cache. #</code>
+		<code>arp -a</code>
+		<br>
+		<code class="comment"># Display the active state of TCP Global Parameters. #</code>
+		<code>netsh interface tcp show global</code>
+		<br>
+		<code class="comment"># Display all of the WiFi profiles that have been connected to. #</code>
+		<code>netsh wlan show profile</code>
+		<br>
+		<code class="comment"># View the WiFi password of a WiFi profile.  (Note: Replace "ProfileName" with the name of the WiFi profile.) #</code>
+		<code>netsh wlan show profile ProfileName key=clear</code>
+		<br>
+
+	    </div>
+
+	    <h3>Perform Other Actions:</h3>
+
+	    <div id="codeBlock">
+
+		<code class="comment"># View Help Information for Windows Commands #</code>
+		<code>help</code>
+		<br>
+		<code class="comment"># Clear the Contents of the Console Window #</code>
+		<code>cls</code>
+		<br>
+		<code class="comment"># View the History of Commands that have been executed in the Console Window. #</code>
+		<code>doskey /history</code>
+		<br>
+		<code class="comment"># Clear the History of Commands that have been executed in the Console Window.  (Note: The Console Window must have focus for this to work.) #</code>
+		<code>Alt + F7</code>
+		<br>
+		<code class="comment"># Send Command Output to the Clipboard #</code>
+		<code>Command | clip</code>
+		<br>
+		<code class="comment"># Send Output to a File #</code>
+		<code>Command > FilePath\FileName.ext</code>
+		<br>
+		<code class="comment"># Append Output to a File #</code>
+		<code>Command >> FilePath\FileName.ext</code>
+		<br>
+		<code class="comment"># Change the Prompt. #</code>
+		<code>prompt ADesiredCombinationOfTextAndOr $Options</code>
+		<br>
+		<code class="comment"># Changing the Prompt back to Normal. #</code>
+		<code>prompt $P$G</code>
+		<br>
+		<code class="comment"># View More Prompt Options. #</code>
+		<code>prompt /?</code>
+		<br>
+		<code class="comment"># Display the Current working directory. #</code>
+		<code>cd</code>
+		<br>
+		<code class="comment"># List files and folders in the Current working directory. #</code>
+		<code>dir</code>
+		<br>
+		<code class="comment"># List all files in the Current working directory that are of a specific file type. #</code>
+		<code>dir *.ext</code>
+		<br>
+		<code class="comment"># Change to a different working directory. (Example: cd C:\Windows or cd C:\[TAB-key] to view folders in within a directory.) #</code>
+		<code>cd Volume:\FolderPath\FolderName</code>
+		<br>
+		<code class="comment"># Navigate to the immediate parent node of the Current working directory. #</code>
+		<code>cd ..</code>
+		<br>
+		<code class="comment"># Create a new folder in the Current working directory. #</code>
+		<code>mkdir FolderName</code>
+		<br>
+		<code class="comment"># Remove an empty folder from the Current working directory. (Note: The "rd" command performs the same action.) #</code>
+		<code>rmdir FolderName</code>
+		<br>
+		<code class="comment"># Remove a folder and all of it's contents from the Current working directory. #</code>
+		<code>rm -r FolderName</code>
+		<br>
+		<code class="comment"># Move a file from the Current working directory to a different directory. #</code>
+		<code>move FileName.ext Volume:\FolderPath\FolderName</code>
+		<br>
+		<code class="comment"># Rename a file in the Current working directory. #</code>
+		<code>ren FileName.ext DifferentFileName.ext</code>
+		<br>
+		<code class="comment"># Display the attributes of all files recursively in the Current working directory. #</code>
+		<code>attrib /s</code>
+		<br>
+		<code class="comment"># Create a File in the Current directory.  (Note: Press Enter while writing text to go to the next line.) #</code>
+		<code>copy con Filename.ext</code>
+		<br>
+		<code class="comment"># Save the contents of the copy con command to the file that is being created. #</code>
+		<code>Ctrl + Z</code>
+		<br>
+		<code class="comment"># Break out of a running process. #</code>
+		<code>Ctrl + C</code>
+		<br>
+		<code class="comment"># Close the Console Window. #</code>
+		<code>exit</code>
+		<br>
+		<code class="comment"># Logoff the Computer. #</code>
+		<code>shutdown /l</code>
+		<br>
+		<code class="comment"># Restart the Computer. #</code>
+		<code>shutdown /r</code>
+		<br>
+		<code class="comment"># Shutdown the Computer. #</code>
+		<code>shutdown /s</code>
+		<br>
+	    </div>
+
+    </div>
+
+</body>
+
+</html>

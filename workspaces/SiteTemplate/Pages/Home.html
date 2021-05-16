@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Home</title>
+
+<style>
+
+    body {
+	height: 100vh;
+	background: rgb(2,0,36);
+	background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(16,80,100,1) 35%, rgba(0,100,150,1) 100%);
+	overflow: hidden;
+    }
+
+    .mySlides {display: none;}
+    img {
+	//vertical-align: middle;
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+
+	//object-fit: contain;
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+	height: 640px;
+	width: 80%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	opacity: 1;
+    }
+
+    /* The dots/bullets/indicators */
+/*
+    .dot {
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+    }
+
+    .active {
+	//background-color: #717171;
+    }
+*/
+
+    /* Fading animation */
+    .fade {
+	//-webkit-animation-name: fade;
+	//-webkit-animation-duration: 3.5s;
+	//animation-name: fade;
+	//animation-duration: 3.5s;
+	-webkit-animation: fadeinout 8s linear forwards;
+	animation: fadeinout 8s linear forwards;
+	opacity: 0;
+    }
+
+    @-webkit-keyframes fadeinout {
+	50% { opacity: 1; }
+    }
+
+    @keyframes fadeinout {
+	50% { opacity: 1; }
+    }
+
+    /* On smaller screens, decrease text size */
+/*
+    @media only screen and (max-width: 300px) {
+	.text {font-size: 11px}
+    }
+*/
+
+</style>
+
+<!-- the below three lines are a fix to get HTML5 semantic elements working in old versions of Internet Explorer-->
+<!--[if lt IE 9]>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+    <!--<div id="homePageLogo"></div>-->
+
+    <div class="slideshow-container">
+
+	<div class="mySlides fade">
+	    <!--<div class="numbertext">1 / 5</div>-->
+		<!--<img src="../Images/" style="width:980px; height:420px;">-->
+		<img src="../Images/TechImage_01.jpg" style="width:100%; height:80%;">
+	    <!--<div class="text">Caption One</div>-->
+	</div>
+
+	<div class="mySlides fade">
+	    <!--<div class="numbertext">2 / 5</div>-->
+		<img src="../Images/TechImage_02.jpg" style="width:100%; height:80%;">
+	    <!--<div class="text">Caption Two</div>-->
+	</div>
+
+	<div class="mySlides fade">
+	    <!--<div class="numbertext">3 / 5</div>-->
+		<img src="../Images/TechImage_03.jpg" style="width:100%; height:80%;">
+	    <!--<div class="text">Caption Three</div>-->
+	</div>
+
+	<div class="mySlides fade">
+	    <!--<div class="numbertext">4 / 5</div>-->
+		<img src="../Images/TechImage_04.jpg" style="width:100%; height:80%;">
+	    <!--<div class="text">Caption Four</div>-->
+	</div>
+
+	<div class="mySlides fade">
+	    <!--<div class="numbertext">5 / 5</div>-->
+		<img src="../Images/TechImage_05.jpg" style="width:100%; height:80%;">
+	    <!--<div class="text">Caption Five</div>-->
+	</div>
+
+    </div>
+
+    <br>
+
+    <div style="text-align:center">
+	<span class="dot"></span>
+	<span class="dot"></span>
+	<span class="dot"></span>
+	<span class="dot"></span>
+	<span class="dot"></span>
+    </div>
+
+<script>
+
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+
+	var i;
+	var slides = document.getElementsByClassName("mySlides");
+	var dots = document.getElementsByClassName("dot");
+
+	for (i = 0; i < slides.length; i++) {
+	    slides[i].style.display = "none";  
+	}
+
+	slideIndex++;
+
+	if (slideIndex > slides.length) {slideIndex = 1}
+
+	for (i = 0; i < dots.length; i++) {
+	    dots[i].className = dots[i].className.replace(" active", "");
+	}
+
+	slides[slideIndex-1].style.display = "block";  
+	dots[slideIndex-1].className += " active";
+	setTimeout(showSlides, 10000); // Change image every 10 seconds
+    }
+
+</script>
+
+</body>
+
+</html>
