@@ -5,6 +5,7 @@
 <head>
 
 <title>My App</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <style>
 
@@ -12,6 +13,10 @@
 	margin: 0;
 	padding: 0;
 	border: 1px solid black;
+    }
+
+    body {
+	font-family: "Times New Roman", Times, serif;
     }
 
     #myApp {
@@ -34,10 +39,11 @@
 	height: 25px;
 	width: 200px;
 	position: relative;
-	top: 3px;
+	top: 1px;
 	left: 10px;
 	padding-top: 5px;
 	color: white;
+	border: none;
     }
 
     #min, #max, #close {
@@ -51,14 +57,14 @@
 
     #minLink, #maxLink, #closeLink {
 	display: inline-block;
-	height: 21px;
+	height: 18px;
 	width: 25px;
 	position: relative;
 	color: white;
 	text-decoration: none;
-	font-size: 16px;
+	font-size: 24px;
 	text-align: center;
-	padding-top: 4px;
+	padding-bottom: 6px;
     }
 
     #minLink:hover, #maxLink:hover {
@@ -107,6 +113,13 @@
     a:hover {
 	background: #b3d7ff;
 	color: #000000
+    }
+
+    #cbTitle {
+	height: 24px;
+	top: 5px;
+	left: 84px;
+	position: relative;
     }
 
     #cbStatus {
@@ -170,6 +183,23 @@
 	if (confirm("Close Window?")) {
 	    //close();
 	    window.parent.close();
+	}
+    }
+
+    function toggleTitle() 
+    {
+	var checkbox = document.getElementById("cbTitle");
+	var elemTitle = document.getElementById("titleBar");
+
+	if(checkbox.checked) 
+	{
+	    document.getElementById("cbTitle").checked = false;
+	    elemTitle.style.display = "none";
+	}
+	else 
+	{
+	    document.getElementById("cbTitle").checked = true;
+	    elemTitle.style.display = "block";
 	}
     }
 
@@ -245,6 +275,7 @@
 	    </div>
 
 	    <div id="view">View
+		<a href="#" onclick="toggleTitle();return false;">Title Bar <input id="cbTitle" type="checkbox" onclick="toggleTitle()" checked /></a>
 		<a href="#" onclick="toggleStatus();return false;">Status Bar <input id="cbStatus" type="checkbox" onclick="toggleStatus()" checked /></a>
 	    </div>
 
