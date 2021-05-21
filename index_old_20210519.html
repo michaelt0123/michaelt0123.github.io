@@ -3,9 +3,6 @@
   
   <head>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Sarpanch&display=swap" rel="stylesheet">
-
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="HandheldFriendly" content="true">
@@ -60,10 +57,11 @@
 */
 
 	html {
-	    min-width: 100vw;
-	    min-height: 100vh;
+	    //height: 48em;
+	    //width: 90%;
 	    //height: 60em;
-	    //width: 100%;
+
+	    width: 100%;
 	    position: absolute;
 	    top: 50%;
 	    left: 50%;
@@ -72,18 +70,22 @@
 	}
 
 	body {
-	    min-width: 100vw;
-	    min-height: 100vh;
-	    //height: 59em;
-	    //width: 100%;
+	    //height: 48em;
+	    //width: 90%;
+
+	    //height: 58.5em;
+	    height: 57em;
+	    width: 100%;
 	    position: absolute;
 	    top: 50%;
 	    left: 50%;
 	    transform: translate(-50%, -50%);
+	    //background-color: gray;
 	    background-image: url("Images/terminal.jpg");
 	    background-repeat: no-repeat;
-	    background-size: 100% 54em;
-	    background-position: 50% 50%;
+	    background-size: 99% 52em;
+	    background-position: 50% 76%;
+
 	    overflow: hidden;
 	}
 
@@ -91,36 +93,20 @@
 	    height: 6em;
 	    width: 68.9%;
 	    position: absolute;
+	    //top: 18%;
+	    //top: 10%;
 	    top: 14%;
 	    left: 50%;
 	    transform: translate(-50%, -50%);
-	    background-color: #333;
+	    background-color: lightgray;
+
+	    //-webkit-box-shadow: 0 8px 6px -6px black;
+	    //-moz-box-shadow: 0 8px 6px -6px black;
+	    //box-shadow: 0 40px 20px -6px #222;
 
 	    -webkit-box-shadow: 0 8px 6px -6px black;
 	    -moz-box-shadow: 0 8px 6px -6px black;
 	    box-shadow: 0 5px 30px 10px #222;
-	}
-
-	.column {
-	    left: 1.3em;
-	    float: left;
-	    width: 25%;
-	    //margin-left: 3.84%;
-	    //margin-right: 3.84%;
-	    margin-left: 3.5%;
-	    margin-right: 3.5%;
-	    position: relative;
-	}
-
-	/* Clearfix (clear floats) */
-	#headContainer::after {
-	    content: "";
-	    clear: both;
-	    display: table;
-	}
-
-	div.column img {
-	    height: 5.64em;
 	}
 
 	#leftContainer {
@@ -131,21 +117,23 @@
 	    left: 10.1%;
 	    transform: translate(-50%, -50%);
 	    background-color: lightgray;
+
+	    //-webkit-box-shadow: 0 8px 6px -6px black;
+	    //-moz-box-shadow: 0 8px 6px -6px black;
+	    //box-shadow: 0 40px 20px -6px #222;
 	}
 
 	#mainContainer {
+	    //height: 24em;
+	    //height: 36.6em;
+	    //height: 30.3em;
 	    height: 33.15em;
 	    width: 68.9%;
 	    position: absolute;
 	    top: 50%;
 	    left: 50%;
 	    transform: translate(-50%, -50%);
-	    //background-color: lightgray;
-
-	    background-image: url("Images/ScreenCut.jpg");
-	    background-repeat: no-repeat;
-	    background-size: 100% 20em;
-	    background-position: 50% 50%;
+	    background-color: lightgray;
 	}
 
 	#rightContainer {
@@ -156,30 +144,30 @@
 	    left: 89.9%;
 	    transform: translate(-50%, -50%);
 	    background-color: lightgray;
+
+	    //-webkit-box-shadow: 0 8px 6px -6px black;
+	    //-moz-box-shadow: 0 8px 6px -6px black;
+	    //box-shadow: 0 40px 20px -6px #222;
 	}
 
 	#footContainer {
 	    height: 6em;
 	    width: 68.9%;
 	    position: absolute;
+	    //top: 82%;
+	    //top: 90%;
 	    top: 86%;
 	    left: 50%;
 	    transform: translate(-50%, -50%);
-	    background-color: #223;
+	    background-color: lightgray;
+
+	    //-webkit-box-shadow: 0 8px 6px -6px black;
+	    //-moz-box-shadow: 0 8px 6px -6px black;
+	    //box-shadow: 0 40px 20px -6px #222;
 
 	    -webkit-box-shadow: 0 8px 6px -6px black;
 	    -moz-box-shadow: 0 8px 6px -6px black;
 	    box-shadow: 0 5px 30px 10px #222;
-	}
-
-	#clock {
-	    font-family: 'Press Start 2P', cursive;
-	    color: #449b88;
-	    font-size: 56px;
-	    text-align: center;
-	    margin-top: 30px;
-	    border: none;
-	    opacity: 0.4;
 	}
 
 /*
@@ -243,94 +231,21 @@
 	}
 
 	iframe {
-	    //height: 99.5%;
-	    //width: 99.78%;
-	    //height: 48.5%;
-	    height: 50.5%;
-	    width: 88.78%;
-	    position: absolute;
-	    top: 50%;
-	    left: 50%;
-	    transform: translate(-50%, -50%);
-	    border-radius: 80px;
-	    //background-color: ghostwhite;
+	    height: 99.5%;
+	    width: 99.78%;
+	    background-color: ghostwhite;
 	    overflow: hidden;
 	}
 
     </style>
-
-    <script>
-
-	function InitializePage() {
-	    DisableLinks();
-	    CurrentTime();
-	}
-
-	function DisableLinks() {
-	    for(var i=0; i <= 10; i++) {
-		document.getElementsByTagName("A")[i].disabled = true;
-		document.getElementsByTagName("A")[i].style.pointerEvents="none";
-		document.getElementsByTagName("A")[i].style.cursor="default";
-	    }
-	}
-
-	function EnableLinks() {
-	    for(var i=0; i <= 10; i++) {
-		document.getElementsByTagName("A")[i].disabled = false;
-		document.getElementsByTagName("A")[i].style.pointerEvents="auto";
-		document.getElementsByTagName("A")[i].style.cursor="pointer";
-	    }
-	}
-
-	function CurrentTime() {
-	    var date = new Date(); /* creating object of Date class */
-	    var hour = date.getHours();
-	    var min = date.getMinutes();
-	    var sec = date.getSeconds();
-	    var midday = "AM";
-	    midday = (hour >= 12) ? "PM" : "AM"; /* assigning AM/PM */
-	    hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour); /* assigning hour in 12-hour format */
-	    hour = updateTime(hour);
-	    min = updateTime(min);
-	    sec = updateTime(sec);
-	    document.getElementById("clock").innerText = hour + " : " + min + " : " + sec + " " + midday; /* adding time to the div */
-	    var t = setTimeout(CurrentTime, 1000); /* setting timer */
-	}
-
-	function updateTime(k) { /* appending 0 before time elements if less than 10 */
-	    if (k < 10) {
-		return "0" + k;
-	    }
-	    else {
-		return k;
-	    }
-	}
-
-	CurrentTime();
-
-    </script>
   
   </head>
 
-  <body onload="InitializePage()">
+  <body>
 
-    <div id="headContainer">
-	<!--<div class="row">-->
-	    <div class="column">
-		<img src="Images/Light.png" style="width:100%" />
-	    </div>
-	<!--</div>-->
-	<!--<div class="row">-->
-	    <div class="column">
-		<img src="Images/Light.png" style="width:100%" />
-	    </div>
-	<!--</div>-->
-	<!--<div class="row">-->
-	    <div class="column">
-		<img src="Images/Light.png" style="width:100%" />
-	    </div>
-	<!--</div>-->
-    </div>
+    <!--<img src="" />-->
+
+    <div id="headContainer">Header</div>
     
     <div id="leftContainer">
 	<img src="Images/Intercom.png" />
@@ -342,7 +257,7 @@
     </div>
 
     <div id="mainContainer">
-	<iframe src="main.html" name="myFrame"><p>Your Browser Doesn't Support IFrames</p></iframe>
+	<iframe src="../workspaces/SiteTemplate/Pages/Links.html" name="myFrame"><p>Your Browser Doesn't Support IFrames</p></iframe>
     </div>
 
     <div id="rightContainer">
@@ -353,12 +268,10 @@
 	<a href="../workspaces/SiteLauncher/Sites/RandomButtons/RandomButtons.html" target="myFrame">&nbsp;Random Buttons</a>
 	<a href="../workspaces/SiteLauncher/Sites/ElementCreator.html" target="myFrame">&nbsp;Element Creator</a>
 	<a href="../workspaces/SiteLauncher/Sites/MyApp/MyApp.html" onclick="window.open('../workspaces/SiteLauncher/Sites/MyApp/MyApp.html', 'newwindow', 'width=862,height=646'); return false;">&nbsp;My App</a>
-	<img src="Images/Coinslot.png" onclick="EnableLinks()" />
+	<img src="Images/Coinslot.png" />
     </div>
 
-    <div id="footContainer">
-	<div id="clock"></div>
-    </div>
+    <div id="footContainer">Footer</div>
     
   </body>
 
