@@ -84,6 +84,24 @@
 	height: 75px;
     }
 
+    /* HANDLE the OVERLAY */
+    #overlay {
+	position: fixed; /* Sit on top of the page content */
+	//display: none; /* Hidden by default */
+	width: 100vw; /* Full width (cover the whole page) */
+	height: 100vh; /* Full height (cover the whole page) */
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image: url("../../../Images/Glitch.gif");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: 50% 50%;
+	z-index: 3; /* Specify a stack order in case you're using a different order for other elements */
+	//cursor: pointer; /* Add a pointer on hover */
+    }
+
 </style>
 
 <script>
@@ -150,6 +168,44 @@
     </div>
 
     <div id="footer"></div>
+
+    <div id="overlay"></div>
+
+    <!-- HANDLE the OVERLAY -->
+    <script>
+	const intToDec = .100;
+	var myVar = setInterval(myTimer, 1000);
+	var element = document.getElementById('overlay');
+	var randOpacity = Math.random() * (9 - 1) + 1;
+	var decimalOpacity = randOpacity * intToDec;
+	var i = decimalOpacity;
+
+	element.style.opacity = i;
+
+	function myTimer() {
+	    if (i <= 0.0) {
+		myStopFunction();
+	    }
+	    else {
+		i = i-0.1;
+		element.style.opacity = i;
+	    }
+	}
+
+	function myStopFunction() {
+	    clearInterval(myVar);
+	    removeOverlay();
+	}
+
+	function removeOverlay() {
+	    //document.getElementById('overlay').style.display = "none";
+	    //document.getElementById('overlay').style.zIndex = "-1";
+	    //body.removeChild(document.getElementById('overlay'));
+
+	    element.style.display = "none";
+	}
+
+    </script>
 
 </body>
 
