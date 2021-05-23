@@ -284,6 +284,22 @@
 	    }
 	}
 
+	function AdjustLights() {
+	    if (document.getElementById("lightSource").src == "Images/Light.png") 
+	    {
+		document.getElementById("lightSource").src = "Images/LightsOn.png";
+	    }
+	    else 
+	    {
+		document.getElementById("lightSource").src = "Images/Light.png";
+	    }
+	}
+
+	function PowerUp() {
+	    AdjustLights();
+	    EnableLinks();
+	}
+
 	function CurrentTime() {
 	    var date = new Date(); /* creating object of Date class */
 	    var hour = date.getHours();
@@ -319,17 +335,17 @@
     <div id="headContainer">
 	<!--<div class="row">-->
 	    <div class="column">
-		<img src="Images/Light.png" style="width:100%" />
+		<img id="lightSource" src="Images/Light.png" style="width:100%" />
 	    </div>
 	<!--</div>-->
 	<!--<div class="row">-->
 	    <div class="column">
-		<img src="Images/Light.png" style="width:100%" />
+		<img id="lightSource" src="Images/Light.png" style="width:100%" />
 	    </div>
 	<!--</div>-->
 	<!--<div class="row">-->
 	    <div class="column">
-		<img src="Images/Light.png" style="width:100%" />
+		<img id="lightSource" src="Images/Light.png" style="width:100%" />
 	    </div>
 	<!--</div>-->
     </div>
@@ -355,7 +371,7 @@
 	<a href="../workspaces/SiteLauncher/Sites/RandomButtons/RandomButtons.html" target="myFrame">&nbsp;Random Buttons</a>
 	<a href="../workspaces/SiteLauncher/Sites/ElementCreator.html" target="myFrame">&nbsp;Element Creator</a>
 	<a href="../workspaces/SiteLauncher/Sites/MyApp/MyApp.html" onclick="window.open('../workspaces/SiteLauncher/Sites/MyApp/MyApp.html', 'newwindow', 'width=862,height=646'); return false;">&nbsp;My App</a>
-	<img src="Images/Coinslot.png" onclick="EnableLinks()" />
+	<img src="Images/Coinslot.png" onclick="PowerUp()" />
     </div>
 
     <div id="footContainer">
