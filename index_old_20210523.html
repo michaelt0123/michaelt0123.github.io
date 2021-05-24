@@ -306,24 +306,10 @@
 	    }
 	}
 
-	function DisplayWelcome() {
-	    var systemDisplay = document.getElementById("mainFrame");
-
-	    if (powerStatus == 1)
-	    {
-		systemDisplay.src = "https://michaelt0123.github.io/welcome.html";
-	    }
-	    else
-	    {
-		systemDisplay.src = "https://michaelt0123.github.io/main.html";
-	    }
-	}
-
 	function PowerUp() {
 	    powerStatus = 1;
-	    EnableLinks();
 	    AdjustLights();
-	    DisplayWelcome();
+	    EnableLinks();
 	}
 
 	function CurrentTime() {
@@ -386,7 +372,7 @@
     </div>
 
     <div id="mainContainer">
-	<iframe id="mainFrame" src="main.html" name="myFrame"><p>Your Browser Doesn't Support IFrames</p></iframe>
+	<iframe src="main.html" name="myFrame"><p>Your Browser Doesn't Support IFrames</p></iframe>
     </div>
 
     <div id="rightContainer">

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+    <head>
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Sarpanch&display=swap" rel="stylesheet">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+
+	<title></title>
+
+	<style>
+	
+	    body {
+		height: 100vh;
+		background: radial-gradient(#656565, #232323);
+		overflow: hidden;
+	    }
+
+	    #prompt {
+		font-style: unset;
+		font-size: 1.2em;
+	    }
+
+	    #prompt.idle {
+		animation: blink 1100ms linear infinite;
+		-webkit-animation: blink 1100ms linear infinite;
+	    }
+
+	    @keyframes blink {
+		49% {opacity: 1;}
+		50% {opacity: 0;}
+		89% {opacity: 0;}
+		90% {opacity: 1;}
+	    }
+
+	    @-webkit-keyframes blink {
+		49% {opacity: 1;}
+		50% {opacity: 0;}
+		89% {opacity: 0;}
+		90% {opacity: 1;}
+	    }
+
+	    #screen {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		opacity: 0.8;
+		line-height: 1.6;
+
+		color: #44ff66;
+		font-family: 'Press Start 2P', cursive;
+		font-size: 1.2em;
+	    }
+
+	    /* HANDLE the OVERLAY */
+	    #overlay {
+		position: fixed; /* Sit on top of the page content */
+		//display: none; /* Hidden by default */
+		width: 100vw; /* Full width (cover the whole page) */
+		height: 100vh; /* Full height (cover the whole page) */
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: url("Images/Glitch.gif");
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		background-position: 50% 50%;
+		z-index: 3; /* Specify a stack order in case you're using a different order for other elements */
+		//cursor: pointer; /* Add a pointer on hover */
+	    }
+
+	</style>
+    
+	<script>
+
+	    function type(text, screen) {
+		//You have to check for lines and if the screen is an element
+		if(!text || !text.length || !(screen instanceof Element)) {
+		    return;
+		}
+	
+		//if it is not a string, you will want to make it into one
+		if('string' !== typeof text) {
+		    text = text.join('\n');
+		}
+	
+		//normalize newlines, and split it to have a nice array
+		text = text.replace(/\r\n?/g,'\n').split('');
+	
+		//the prompt is always the last child
+		var prompt = screen.lastChild;
+		prompt.className = 'typing';
+	
+		var typer = function(){
+		    var character = text.shift();
+		    screen.insertBefore(
+			//newlines must be written as a `<br>`
+			character === '\n'
+				? document.createElement('br')
+				: document.createTextNode(character),
+			prompt
+		    );
+		
+		    //only run this again if there are letters
+		    if( text.length ) {
+			//setTimeout(typer, 300);
+			setTimeout(typer, 175);
+		    } 
+		    else {
+			prompt.className = 'idle';
+		    }
+		};
+		//setTimeout(typer, 300);
+		setTimeout(typer, 175);
+	    };
+
+	    window.onload=function(){
+		var screen = document.getElementById('screen');
+		var text = [
+		    'You are using a M.A.R.C - 3000',
+		    '',
+		    'Matter Activated Reception Console',
+		    '',
+		    'All systems are functional.',
+		    '',
+		    'Please select a button to view data.',
+		    '',
+		    '',
+		    'Awaiting selection...'
+		];
+  
+		type(text, screen);
+	    };
+
+	</script>
+
+    </head>
+
+    <body>
+
+	<div id="screen"><b id="prompt" class="idle">&marker;</b></div>
+
+	<div id="overlay"></div>
+
+	<!-- HANDLE the OVERLAY -->
+	<script>
+	    const intToDec = .100;
+	    var myVar = setInterval(myTimer, 1000);
+	    var element = document.getElementById('overlay');
+	    var randOpacity = Math.random() * (9 - 1) + 1;
+	    var decimalOpacity = randOpacity * intToDec;
+	    var i = decimalOpacity;
+
+	    element.style.opacity = i;
+
+	    function myTimer() {
+		if (i <= 0.0) {
+		    myStopFunction();
+		}
+		else {
+		    i = i-0.1;
+		    element.style.opacity = i;
+		}
+	    }
+
+	    function myStopFunction() {
+		clearInterval(myVar);
+		removeOverlay();
+	    }
+
+	    function removeOverlay() {
+		//document.getElementById('overlay').style.display = "none";
+		//document.getElementById('overlay').style.zIndex = "-1";
+		//body.removeChild(document.getElementById('overlay'));
+
+		element.style.display = "none";
+	    }
+
+	</script>
+
+    </body>
+
+</html>
+
+<!-- REFERENCES -->
+<!--  https://codereview.stackexchange.com/questions/97106/console-like-printing-of-message-javascript  -->
