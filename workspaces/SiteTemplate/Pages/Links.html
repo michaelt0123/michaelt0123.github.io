@@ -1,179 +1,176 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
+    <head>
 
-<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<style>
 
-<title>Links</title>
-
-<style>
-
-    * {
-	margin: 0;
-	padding: 0;
-    }
-
-    body {
-	background: rgb(2,0,36);
-	background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(16,80,100,1) 35%, rgba(0,100,150,1) 100%);
-    }
-
-    /* Google font */
-    @import url('https://fonts.googleapis.com/css?family=Orbitron');
-
-    /* Style the header */
-    .header {
-	background-color: #789;
-	padding: 30px 40px;
-	color: white;
-	text-align: center;
-    }
-
-    /* Clear floats after the header */
-    .header:after {
-	content: "";
-	display: table;
-	clear: both;
-    }
-
-    #headerShadow {
-	top: 0;
-	left: 0;
-	width: 100%;
-	position: fixed;
-	z-index: 2;
-	-webkit-box-shadow: 0 8px 6px -6px black;
-	-moz-box-shadow: 0 8px 6px -6px black;
-	box-shadow: 0 40px 20px -6px #222;
-    }
-
-    h1 {
-	font-size: 42px;
-    }
-
-    #links {
-	margin: 0 auto;
-	margin-top: 200px;
-	margin-bottom: 50px;
-	width: 88%;
-	border: 3px solid #008;
-	padding: 10px;
-	background: #DEF;
-    }
-
-    .linkRows {
-	margin: 0 auto;
-	width: 100%;
-	text-align: center;
-    }
-
-    a {
-	display: inline-block;
-	height: 200px;
-	width: 240px;
-	margin-bottom: 8px;
-	text-align: center;
-	text-decoration: none !important;
-	font-size: 28px;
-	line-height: 7em;
-	//background: #36abde;  /* Original Color */
-	background: #c6dbe4;	/* Color Taken from Home Page Logo */
-	color: black;
-	border: 1px solid #008;
-    }
-
-    a:hover {
-	//background-color: #48d7ea;  /* Original Color */
-	background-color: #def7ea;  /* Estimated This Color based on Original */
-	color: #FFF;
-        text-shadow: 2px 2px 10px black;  /* Included Text Shadowing to be consistent with StartPage.html */
-	border: 1px solid #000;
-    }
-
-    /* HANDLE the OVERLAY */
-    #overlay {
-	position: fixed; /* Sit on top of the page content */
-	//display: none; /* Hidden by default */
-	width: 100vw; /* Full width (cover the whole page) */
-	height: 100vh; /* Full height (cover the whole page) */
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-image: url("../../../Images/Glitch.gif");
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	background-position: 50% 50%;
-	z-index: 3; /* Specify a stack order in case you're using a different order for other elements */
-	//cursor: pointer; /* Add a pointer on hover */
-    }
-
-</style>
-
-</head>
-
-<body>
-
-    <div id="headerShadow" class="header">
-	<h1>Links</h1>
-    </div>
-
-    <div id="links">
-	<div class="linkRows">
-	    <a href="https://" target="_blank">My Tasks</a>
-	    <a href="https://" target="_blank">My Tickets</a>
-	    <a href="https://" target="_blank">All Work Items</a>
-	</div>
-	<div class="linkRows">
-	    <a href="https://" target="_blank">Team A's VTB</a>
-	</div>
-	<div class="linkRows">
-	    <a href="mailto:">Email Team A</a>
-	    <a href="mailto:">Email Team B</a>
-	    <a href="mailto:">Email Team C</a>
-	</div>
-    </div>
-
-    <div id="overlay"></div>
-
-    <!-- HANDLE the OVERLAY -->
-    <script>
-	const intToDec = .100;
-	var myVar = setInterval(myTimer, 1000);
-	var element = document.getElementById('overlay');
-	var randOpacity = Math.random() * (9 - 1) + 1;
-	var decimalOpacity = randOpacity * intToDec;
-	var i = decimalOpacity;
-
-	element.style.opacity = i;
-
-	function myTimer() {
-	    if (i <= 0.0) {
-		myStopFunction();
+	    * {
+		margin: 0;
+		padding: 0;
 	    }
-	    else {
-		i = i-0.1;
-		element.style.opacity = i;
+
+	    body {
+		background: rgb(2,0,36);
+		background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(16,80,100,1) 35%, rgba(0,100,150,1) 100%);
 	    }
-	}
 
-	function myStopFunction() {
-	    clearInterval(myVar);
-	    removeOverlay();
-	}
+	    /* Google font */
+	    @import url('https://fonts.googleapis.com/css?family=Orbitron');
 
-	function removeOverlay() {
-	    //document.getElementById('overlay').style.display = "none";
-	    //document.getElementById('overlay').style.zIndex = "-1";
-	    //body.removeChild(document.getElementById('overlay'));
+	    /* Style the header */
+	    .header {
+		background-color: #789;
+		padding: 30px 40px;
+		color: white;
+		text-align: center;
+	    }
 
-	    element.style.display = "none";
-	}
+	    /* Clear floats after the header */
+	    .header:after {
+		content: "";
+		display: table;
+		clear: both;
+	    }
 
-    </script>
+	    #headerShadow {
+		top: 0;
+		left: 0;
+		width: 100%;
+		position: fixed;
+		z-index: 2;
+		-webkit-box-shadow: 0 8px 6px -6px black;
+		-moz-box-shadow: 0 8px 6px -6px black;
+		box-shadow: 0 40px 20px -6px #222;
+	    }
 
-</body>
+	    h1 {
+		font-size: 42px;
+	    }
+
+	    #links {
+		margin: 0 auto;
+		margin-top: 200px;
+		margin-bottom: 50px;
+		width: 88%;
+		border: 3px solid #008;
+		padding: 10px;
+		background: #DEF;
+	    }
+
+	    .linkRows {
+		margin: 0 auto;
+		width: 100%;
+		text-align: center;
+	    }
+
+	    a {
+		display: inline-block;
+		height: 200px;
+		width: 240px;
+		margin-bottom: 8px;
+		text-align: center;
+		text-decoration: none !important;
+		font-size: 28px;
+		line-height: 7em;
+		background: #36abde;
+		border: 1px solid #008;
+	    }
+
+	    a:hover {
+		background-color: #48d7ea;
+		color: #FFF;
+		border: 1px solid #000;
+	    }
+
+	    /* HANDLE the OVERLAY */
+	    #overlay {
+		position: fixed; /* Sit on top of the page content */
+		//display: none; /* Hidden by default */
+		width: 100vw; /* Full width (cover the whole page) */
+		height: 100vh; /* Full height (cover the whole page) */
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: url("../../../Images/Glitch.gif");
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		background-position: 50% 50%;
+		z-index: 3; /* Specify a stack order in case you're using a different order for other elements */
+		//cursor: pointer; /* Add a pointer on hover */
+	    }
+
+	</style>
+
+    </head>
+
+    <body>
+
+	<div id="headerShadow" class="header">
+	    <h1>Links</h1>
+	</div>
+
+	<div id="links">
+
+	    <div class="linkRows">
+		<a href="" target="_blank">Google</a>
+		<a href="" target="_blank">Yahoo</a>
+		<a href="" target="_blank">Bing</a>
+	    </div>
+
+	    <div class="linkRows">
+		<a href="" target="_blank">Amazon</a>
+	    </div>
+
+	    <div class="linkRows">
+		<a href="">CompUSA</a>
+		<a href="">Lowes</a>
+		<a href="">Home Depot</a>
+	    </div>
+
+	</div>
+
+	<div id="overlay"></div>
+
+	<!-- HANDLE the OVERLAY -->
+	<script>
+	    const intToDec = .100;
+	    var myVar = setInterval(myTimer, 1000);
+	    var element = document.getElementById('overlay');
+	    var randOpacity = Math.random() * (9 - 1) + 1;
+	    var decimalOpacity = randOpacity * intToDec;
+	    var i = decimalOpacity;
+
+	    element.style.opacity = i;
+
+	    function myTimer() {
+		if (i <= 0.0) {
+		    myStopFunction();
+		}
+		else {
+		    i = i-0.1;
+		    element.style.opacity = i;
+		}
+	    }
+
+	    function myStopFunction() {
+		clearInterval(myVar);
+		removeOverlay();
+	    }
+
+	    function removeOverlay() {
+		//document.getElementById('overlay').style.display = "none";
+		//document.getElementById('overlay').style.zIndex = "-1";
+		//body.removeChild(document.getElementById('overlay'));
+
+		element.style.display = "none";
+	    }
+
+	</script>
+
+    </body>
 
 </html>

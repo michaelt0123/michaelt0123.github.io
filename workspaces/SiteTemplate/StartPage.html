@@ -1,131 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
 
-    <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>[SITE TEMPLATE]</title><!--Change the Title-->
+	<title>[Site Template]</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link id="pageStyle" rel="stylesheet" href="Styles/multi.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" type="text/css">
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="Styles/style.css">
+	<style>
 
-    <!-- the below three lines are a fix to get HTML5 semantic elements working in old versions of Internet Explorer-->
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
-
-    <script>
-	var i = 0;
-
-	function currentTime() {
-	    var date = new Date(); /* creating object of Date class */
-	    var hour = date.getHours();
-	    var min = date.getMinutes();
-	    var sec = date.getSeconds();
-	    var midday = "AM";
-	    midday = (hour >= 12) ? "PM" : "AM"; /* assigning AM/PM */
-	    hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour); /* assigning hour in 12-hour format */
-	    hour = updateTime(hour);
-	    min = updateTime(min);
-	    sec = updateTime(sec);
-	    document.getElementById("clock").innerText = hour + " : " + min + " : " + sec + " " + midday; /* adding time to the div */
-	    var t = setTimeout(currentTime, 1000); /* setting timer */
-	}
-
-	function secondCounter(){
-	    ++i;
-	}
-
-	function updateTime(k) { /* appending 0 before time elements if less than 10 */
-	    if (k < 10) {
-		return "0" + k;
+	    #styler {
+		width: 70px;
+		height: 380px;
+		top: 38%;
+		right: 5%;
+		position: absolute;
 	    }
-	    else {
-		return k;
+
+	    .colorOption {
+		height: 50px;
+		width: 50px;
+		display: block;
+		border: 1px solid black;
 	    }
-	}
 
-	currentTime();
+	    #pink {
+		background-color: #e898e8;
+	    }
 
-    </script>
+	    #yellow {
+		background-color: #e8e898;
+	    }
 
-</head>
+	    #green {
+		background-color: #98e898;
+	    }
 
-<body onload="currentTime()">
+	    #cyan {
+		background-color: #98e8e8;
+	    }
 
-    <div id="pageContainer">
+	    #teal {
+		background-color: #48d7ea;
+	    }
 
-	<!-- Here is our main header that is used across all the pages of our website -->
-	<header>
-	    <h1>[SITE TEMPLATE]</h1><!--Change the Header-->
-	</header>
+	    #purple {
+		background-color: #9898e8;
+	    }
 
-	<nav>
-	    <ul>
-		<li><a href="Pages/Home.html" target="myFrame">Home</a></li>
-		<li><a href="Pages/Links.html" target="myFrame">Links</a></li>
-		<li><a href="Pages/KeyboardShortcuts.html" target="myFrame">Keyboard Shortcuts</a></li>
-		<li><a href="Pages/SystemCommands.html" target="myFrame">System Commands</a></li>
-		<li><a href="Pages/AutoResponse.html" target="myFrame">Auto-Response</a></li>
-	    </ul>
-	</nav>
+	</style>
 
-	<!-- Here is our page's main content -->
-	<main>
+	<!-- the below three lines are a fix to get HTML5 semantic elements working in old versions of Internet Explorer-->
+	<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+	<![endif]-->
 
-	    <iframe src = "Pages/Home.html" name="myFrame">
-		Sorry your browser does not support inline frames.
-	    </iframe>
+	<script>
 
-	    <!-- the aside content can also be nested within the main content -->
-	    <aside>
+	    //var colorClick = 0;
 
-		<h2>Related</h2>
+	    function InitializePage() {
+		currentTime();
+		//setActiveStyleSheet(color);	/* Turn off if not changing colors per second.	*/
+	    }
+/*
+	    function colorClickSet(color) {
+		colorClick = 1;
+		setActiveStyleSheet(color);
+	    }
 
+	    function setActiveStyleSheet(color) {
+		var theme = document.getElementById("pageStyle"); 
+		switch(color) {
+		    case "pink":
+			theme.setAttribute("href", "Styles/pink.css");
+			break;
+		    case "yellow":
+			theme.setAttribute("href", "Styles/yellow.css");
+			break;
+		    case "green":
+			theme.setAttribute("href", "Styles/green.css");
+			break;
+		    case "cyan":
+			theme.setAttribute("href", "Styles/cyan.css");
+			break;
+		    case "teal":
+			theme.setAttribute("href", "Styles/teal.css");
+			break;
+		    case "purple":
+			theme.setAttribute("href", "Styles/purple.css");
+			break;
+		    default:
+			theme.setAttribute("href", "Styles/teal.css");
+		}
+	    }
+*/
+	    /*  Color change with time formula: 	*/
+	    /*  [(60*60) / 255] * 12 = 169		*/
+	    /*  Where:					*/
+	    /*  60 = (seconds/minute)			*/
+	    /*  60 = (minutes/hour)			*/
+	    /*  255 = (color values per {r, g, b})	*/
+	    /*  12 = (hours/half-day)			*/
+	    /*  169 = (seconds/color value change)	*/
+	    /*  (8am - 8pm) = 12 hour time-frame	*/
+	    /*  --------------------------------------  */
+	    /*  We take the total number of seconds in	*/
+	    /*  one hour (3600) and because we want to	*/
+	    /*  determine how often we should change	*/
+	    /*  color values, we divide the number of	*/
+	    /*  seconds in one hour by the total number	*/
+	    /*  of color values per color which is 255.	*/
+	    /*  Then, since we are interested in the 	*/
+	    /*  change in colors over a 12 hour period, */
+	    /*  we multiply the result of (60*60)/255	*/
+	    /*  by 12 and we get 169 which is how often	*/
+	    /*  we need to change our color values.	*/
+
+//	    var i = 0;	/* Where i is the counter to 169 */
+	    var r = 0;
+	    var g = 0;
+	    var b = 0;
+	    var colorSet = 0;
+
+	    function currentTime() {
+		var date = new Date(); /* creating object of Date class */
+		var hour = date.getHours();
+		var min = date.getMinutes();
+		var sec = date.getSeconds();
+		var midday = "AM";
+		midday = (hour >= 12) ? "PM" : "AM"; /* assigning AM/PM */
+		hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour); /* assigning hour in 12-hour format */
+		hour = updateTime(hour);
+		min = updateTime(min);
+		sec = updateTime(sec);
+		document.getElementById("clock").innerText = hour + " : " + min + " : " + sec + " " + midday; /* adding time to the div */
+		var t = setTimeout(currentTime, 1000); /* setting timer */
+
+		/*  Increment i by one through each pass 	*/
+		/*  until it reaches 169 then reset it to zero. */
+		//i++;  /*  A counter is not needed if we're changing each second  */
+/*
+		if(i == 169)
+		{
+		    i = 0;
+*/
+		    /*  Dawn occurs for about 30 minutes  */
+		    /*  beginning approximately at 6am.	  */
+		    /*  After dawn comes sunrise which 	  */
+		    /*  also lasts for about 30 minutes.  */
+/*  Morning Blue = #8da399 which should be added as gradient color.	*/
+		    if(hour >= 6 && min >= 0 && min < 30) {
+
+			if(colorSet == 0) {
+			    r = 206;
+			    g = 178;
+			    b = 174;
+			    colorSet = 1;
+			}
+
+/* RED = ([1800secs/30mins] | [255(color at sunrise)-206(color at dawn)=49color values to work with in 30 minutes] | [0.027*1800=48.6]) */
+/* GREEN = ([1800secs/30mins] | [202(color at sunrise)-178(color at dawn)=24color values to work with in 30 minutes] | [0.013*1800=23.4]) */
+/* BLUE = ([1800secs/30mins] | [124(color at sunrise)-174(color at dawn)=50color values to work with in 30 minutes] | [0.028*1800=50.4]) */
+			if(colorSet == 1 && r < 255 && g < 255 && b < 255) {
+			    r = r+0.027;
+			    g = g+0.013;
+			    b = b-0.028;
+			}
+			else {
+			    colorSet = 0;
+			}
+		    }
+		    else if(hour >= 6 && min >= 30 && min <= 59) {
+
+			if(colorSet == 0) {
+			    r = 255;
+			    g = 202;
+			    b = 124;
+			    colorSet = 1;
+			}
+
+			if(colorSet == 1 && r < 255 && g < 255 && b < 255) {
+			    r = r+0.32;
+			    g = g+0.32;
+			    b = b+0.32;
+			}
+
+		    }
+//		}
+
+		document.getElementById("navBar").style.backgroundColor = 'rgb('+r+','+g+','+b+')';
+		document.getElementById("asidePanel").style.backgroundColor = 'rgb('+r+','+g+','+b+')';
+
+		/*  This was added so that if no colors are 	*/
+		/*  selected from the panel on the right, the	*/
+		/*  colorChange function will continue to run	*/
+		/*  until the colorClick value changes to 1.	*/
+/*
+		if(colorClick == 0) {
+		    colorChange();
+		}
+*/
+	    }
+
+	    function updateTime(k) { /* appending 0 before time elements if less than 10 */
+		if (k < 10) {
+		    return "0" + k;
+		}
+		else {
+		    return k;
+		}
+	    }
+
+	    currentTime();
+/*
+	    function colorChange() {
+		var date = new Date();
+		var hour = date.getHours();
+
+		if(hour >= 20 || hour < 5) {
+		    setActiveStyleSheet('purple');
+		}
+		else if(hour >= 5 && hour < 6) {
+		    setActiveStyleSheet('pink');
+		}
+		else if(hour >= 6 && hour < 8) {
+		    setActiveStyleSheet('yellow');
+		}
+		else if(hour >=8 && hour < 12) {
+		    setActiveStyleSheet('green');
+		}
+		else if(hour >= 12 && hour < 16) {
+		    setActiveStyleSheet('cyan');
+		}
+		else if(hour >= 16 && hour < 20) {
+		    setActiveStyleSheet('teal');
+		}
+	    }
+
+	    colorChange();
+*/
+	</script>
+
+    </head>
+
+    <body onload="InitializePage()">
+
+	<div id="pageContainer">
+
+	    <!-- Here is our main header that is used across all the pages of our website -->
+	    <header>
+		<h1>[SITE TEMPLATE]</h1>
+	    </header>
+
+	    <nav id="navBar">
 		<ul>
-		    <li><a href="https://www.office.com/launch/word?auth=1" target="_blank">Microsoft Office - (Word)</a></li>
-		    <li><a href="https://www.office.com/launch/excel?auth=1" target="_blank">Microsoft Office - (Excel)</a></li>
-		    <li><a href="https://www.office.com/launch/powerpoint?auth=1" target="_blank">Microsoft Office - (PowerPoint)</a></li>
-		    <li><a href="https://outlook.com/" target="_blank">Microsoft Office - (Outlook)</a></li>
-		    <li><a href="https://web.skype.com/" target="_blank">Microsoft Office - (Skype)</a></li>
-		    <li><a href="sip:">Skype - (Desktop Client)</a></li>
-		    <li><a href="https://docs.google.com/document/?usp=mkt_docs" target="_blank">Google - (Docs)</a></li>
-		    <li><a href="https://docs.google.com/spreadsheets/?usp=mkt_sheets" target="_blank">Google - (Sheets)</a></li>
-		    <li><a href="https://docs.google.com/presentation/?usp=mkt_slides" target="_blank">Google - (Slides)</a></li>
-		    <li><a href="https://docs.google.com/forms?usp=mkt_forms" target="_blank">Google - (Forms)</a></li>
-		    <li><a href="https://www.icloud.com/pages" target="_blank">Apple iCloud - (Pages)</a></li>
-		    <li><a href="https://www.icloud.com/numbers" target="_blank">Apple iCloud - (Numbers)</a></li>
-		    <li><a href="https://www.icloud.com/keynote" target="_blank">Apple iCloud - (Keynote)</a></li>
-		    <li><a href="https://www.icloud.com/mail" target="_blank">Apple iCloud - (Mail)</a></li>
-		    <li><a href="https://www.jotform.com/myforms/" target="_blank">JotForm - (My Forms)</a></li>
-		    <li><a href="https://www.jotform.com/mytables/" target="_blank">JotForm - (My Tables)</a></li>
-		    <li><a href="https://www.jotform.com/myreports/" target="_blank">JotForm - (My Reports)</a></li>
-		    <li><a href="https://www.pdfescape.com/open/" target="_blank">PDFescape</a></li>
-		    <li><a href="https://builder.honeycode.aws/" target="_blank">Amazon Honeycode</a></li>
-		    <li><a href="https://pwa.zoom.us/wc" target="_blank">Zoom - (Join a Meeting)</a></li>
-		    <li><a href="https://zoom.us/wc/join/meetingid" target="_blank">Zoom - (MeetingID in URL)</a></li>
-		    <li><a href="https://www.bluejeans.com/" target="_blank">BlueJeans - (Join a Meeting)</a></li>
-		    <li><a href="https://bluejeans.com/meetingid" target="_blank">BlueJeans - (MeetingID in URL)</a></li>
-		    <li><a href="https://meetingsamer31.webex.com/webappng/sites/meetingsamer31/dashboard?siteurl=meetingsamer31" target="_blank">Webex - (Join a Meeting)</a></li>
+		    <li><a href="Pages/Home.html" target="myFrame">Home</a></li>
+		    <li><a href="Pages/Links.html" target="myFrame">Links</a></li>
+		    <li><a href="Pages/KeyboardShortcuts.html" target="myFrame">Keyboard Shortcuts</a></li>
+		    <li><a href="Pages/SystemCommands.html" target="myFrame">System Commands</a></li>
+		    <li><a href="Pages/AutoResponse.html" target="myFrame">Auto-Response</a></li>
 		</ul>
+	    </nav>
 
-	    </aside>
+	    <!-- Here is our page's main content -->
+	    <main>
 
-	</main>
+		<iframe src = "Pages/Home.html" name="myFrame">
+		    Unfortunately your browser does not support inline frames.
+		</iframe>
 
-	<!-- And here is our main footer that is used across all the pages of our website -->
+		<!-- the aside content can also be nested within the main content -->
+		<aside id="asidePanel">
+		    <h2>Related</h2>
+		    <ul>
+			<!--   LI Goes Here   -->
+			<li><a href="https://www.google.com/" target="_blank">Google</a></li>
+		    </ul>
+		</aside>
 
-	<footer>
-	    <div id="clock"></div>
-	</footer>
+	    </main>
 
-    </div>
+	    <!-- And here is our main footer that is used across all the pages of our website -->
+	    <footer>
+		<div id="clock"></div>
+	    </footer>
 
-</body>
+	</div>
+
+	<!-- Let's not forget our color options -->
+	<div id="styler">
+	    <div id="pink" class="colorOption" onclick="colorClickSet('pink')">Pink</div>
+	    <div id="yellow" class="colorOption" onclick="colorClickSet('yellow')">Yellow</div>
+	    <div id="green" class="colorOption" onclick="colorClickSet('green')">Green</div>
+	    <div id="cyan" class="colorOption" onclick="colorClickSet('cyan')">Cyan</div>
+	    <div id="teal" class="colorOption" onclick="colorClickSet('teal')">Teal</div>
+	    <div id="purple" class="colorOption" onclick="colorClickSet('purple')">Purple</div>
+	</div>
+
+    </body>
 
 </html>

@@ -6,7 +6,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<title>System Commands</title>
+<title>Commands</title>
 
 <style>
 
@@ -98,23 +98,23 @@
 	color: yellow;
     }
 
-    /* HANDLE the OVERLAY */
-    #overlay {
-	position: fixed; /* Sit on top of the page content */
-	//display: none; /* Hidden by default */
-	width: 100vw; /* Full width (cover the whole page) */
-	height: 100vh; /* Full height (cover the whole page) */
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-image: url("../../../Images/Glitch.gif");
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	background-position: 50% 50%;
-	z-index: 3; /* Specify a stack order in case you're using a different order for other elements */
-	//cursor: pointer; /* Add a pointer on hover */
-    }
+	    /* HANDLE the OVERLAY */
+	    #overlay {
+		position: fixed; /* Sit on top of the page content */
+		//display: none; /* Hidden by default */
+		width: 100vw; /* Full width (cover the whole page) */
+		height: 100vh; /* Full height (cover the whole page) */
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: url("../../../Images/Glitch.gif");
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		background-position: 50% 50%;
+		z-index: 3; /* Specify a stack order in case you're using a different order for other elements */
+		//cursor: pointer; /* Add a pointer on hover */
+	    }
 
 </style>
 
@@ -157,6 +157,11 @@
 			<td><code>control</code></td>
 			<td>--------------------</td>
 			<td><code>Control Panel</code></td>
+		    </tr>
+		    <tr>
+			<td><code>winver</code></td>
+			<td>--------------------</td>
+			<td><code>Windows Version</code></td>
 		    </tr>
 		    <tr>
 			<td><code>taskmgr.exe</code></td>
@@ -284,12 +289,6 @@
 		<code class="comment"># Display the Volume Label and S/N of a HDD #</code>
 		<code>vol C:</code>
 		<br>
-		<code class="comment"># Check with the Domain Controller for new or updated Group Policies and apply them. #</code>
-		<code>gpupdate /force</code>
-		<br>
-		<code class="comment"># Display all Group Policy objects for the current user and the local system. #</code>
-		<code>gpresult /r</code>
-		<br>
 
 	    </div>
 
@@ -395,11 +394,8 @@ systems on your network or the internet and display the listening ports. #</code
 		<code class="comment"># Create a new folder in the Current working directory. #</code>
 		<code>mkdir FolderName</code>
 		<br>
-		<code class="comment"># Remove an empty folder from the Current working directory. (Note: The "rd" command performs the same action.) #</code>
+		<code class="comment"># Remove a folder from the Current working directory. #</code>
 		<code>rmdir FolderName</code>
-		<br>
-		<code class="comment"># Remove a folder and all of it's contents from the Current working directory. #</code>
-		<code>rm -r FolderName</code>
 		<br>
 		<code class="comment"># Move a file from the Current working directory to a different directory. #</code>
 		<code>move FileName.ext Volume:\FolderPath\FolderName</code>
@@ -435,43 +431,43 @@ systems on your network or the internet and display the listening ports. #</code
 
     </div>
 
-    <div id="overlay"></div>
+	<div id="overlay"></div>
 
-    <!-- HANDLE the OVERLAY -->
-    <script>
-	const intToDec = .100;
-	var myVar = setInterval(myTimer, 1000);
-	var element = document.getElementById('overlay');
-	var randOpacity = Math.random() * (9 - 1) + 1;
-	var decimalOpacity = randOpacity * intToDec;
-	var i = decimalOpacity;
+	<!-- HANDLE the OVERLAY -->
+	<script>
+	    const intToDec = .100;
+	    var myVar = setInterval(myTimer, 1000);
+	    var element = document.getElementById('overlay');
+	    var randOpacity = Math.random() * (9 - 1) + 1;
+	    var decimalOpacity = randOpacity * intToDec;
+	    var i = decimalOpacity;
 
-	element.style.opacity = i;
+	    element.style.opacity = i;
 
-	function myTimer() {
-	    if (i <= 0.0) {
-		myStopFunction();
+	    function myTimer() {
+		if (i <= 0.0) {
+		    myStopFunction();
+		}
+		else {
+		    i = i-0.1;
+		    element.style.opacity = i;
+		}
 	    }
-	    else {
-		i = i-0.1;
-		element.style.opacity = i;
+
+	    function myStopFunction() {
+		clearInterval(myVar);
+		removeOverlay();
 	    }
-	}
 
-	function myStopFunction() {
-	    clearInterval(myVar);
-	    removeOverlay();
-	}
+	    function removeOverlay() {
+		//document.getElementById('overlay').style.display = "none";
+		//document.getElementById('overlay').style.zIndex = "-1";
+		//body.removeChild(document.getElementById('overlay'));
 
-	function removeOverlay() {
-	    //document.getElementById('overlay').style.display = "none";
-	    //document.getElementById('overlay').style.zIndex = "-1";
-	    //body.removeChild(document.getElementById('overlay'));
+		element.style.display = "none";
+	    }
 
-	    element.style.display = "none";
-	}
-
-    </script>
+	</script>
 
 </body>
 
