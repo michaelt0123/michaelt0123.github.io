@@ -131,6 +131,7 @@
 	    function currentTime() {
 		var date = new Date(); /* creating object of Date class */
 		var hour = date.getHours();
+		var hourNotFormatted = date.getHours();
 		var min = date.getMinutes();
 		var sec = date.getSeconds();
 		var midday = "AM";
@@ -155,7 +156,7 @@
 		    /*  After dawn comes sunrise which 	  */
 		    /*  also lasts for about 30 minutes.  */
 /*  Morning Blue = #8da399 which should be added as gradient color.	*/
-		    if(hour >= 6 && min >= 0 && min < 30) {
+		    if(hourNotFormatted >= 16 && min >= 0 && min < 30) {
 
 			if(colorSet == 0) {
 			    r = 206;
@@ -176,7 +177,7 @@
 			    colorSet = 0;
 			}
 		    }
-		    else if(hour >= 6 && min >= 30 && min <= 59) {
+		    else if(hourNotFormatted >= 16 && min >= 30 && min <= 59) {
 
 			if(colorSet == 0) {
 			    r = 255;
@@ -194,8 +195,10 @@
 		    }
 //		}
 
-		document.getElementById("navBar").style.backgroundColor = 'rgb('+r+','+g+','+b+')';
-		document.getElementById("asidePanel").style.backgroundColor = 'rgb('+r+','+g+','+b+')';
+		//document.getElementById("navBar").style.backgroundColor = 'rgb('+r+','+g+','+b+')';
+		document.getElementById("navBar").style.background = 'linear-gradient(0deg, rgba('+r+','+g+','+b+'1) 0%, rgba('+b+','+g+','+r+'1) 100%)';
+		//document.getElementById("asidePanel").style.backgroundColor = 'rgb('+r+','+g+','+b+')';
+		document.getElementById("asidePanel").style.background = 'linear-gradient(0deg, rgba('+r+','+g+','+b+'1) 0%, rgba('+b+','+g+','+r+'1) 100%)';
 
 		/*  This was added so that if no colors are 	*/
 		/*  selected from the panel on the right, the	*/
