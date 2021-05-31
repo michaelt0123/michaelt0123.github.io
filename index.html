@@ -264,6 +264,7 @@
     <script>
 
 	var powerStatus = 0;
+	var totalSeconds = 0;
 
 	function InitializePage() {
 	    DisableLinks();
@@ -321,9 +322,17 @@
 
 	function PowerUp() {
 	    powerStatus = 1;
-	    EnableLinks();
+	    setInterval(MainTimer, 1000);
 	    AdjustLights();
 	    DisplayWelcome();
+	}
+
+	function MainTimer() {
+	    totalSeconds++;
+
+	    if(totalSeconds >= 28) {
+		EnableLinks();
+	    }
 	}
 
 	function CurrentTime() {
